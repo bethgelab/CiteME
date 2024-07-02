@@ -16,13 +16,13 @@ We enable language models to search for papers, read them, and then pick the pap
 | Accuracy [%] | **35.3** | 21.0 | 27.7 | 0 | 0 |
 
 ## 🚀 CiteAgent in Action
-We enable language models to search for papers, read them, and then pick the paper it thinks is cited. We refer to this combination of commands and LMs as "CiteAgents". To see CiteAgents in action, [click here](trajectories.html).
+We enable language models to search for papers, read them, and then pick the paper it thinks is cited. We refer to this combination of commands and LMs as "CiteAgents". To see CiteAgents in action, [click here](https://www.citeme.ai/trajectories.html).
 
 
 
 ## Dataset
 
-The hand curated version of the dataset can be found in the `DATASET.csv`.
+The hand curated version of the dataset can be found on [citeme.ai](https://www.citeme.ai).
 It contains following columns:
 - `id`: A unique id that is used in all our experiments to reference a specific paper.
 - `excerpt`: The text excerpt describing the target paper.
@@ -49,6 +49,8 @@ In order to run CiteAgent install the required python packages listed in the `re
 pip install -r requirements.txt
 ```
 
+Then download the dataset from [citeme.ai](https://www.citeme.ai) and place it in the project folder as `DATASET.csv`.
+
 Afterwards, run the `main.py` file.
 ```
 python src/main.py
@@ -68,11 +70,11 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
 ### If you find our work helpful, please use the following citation:
 ```
 @misc{press2024citeme,
-title={CiteME: Can Language Models Accurately Cite Scientific Claims?},
-author={Ori Press and Andreas Hochlehnert and Ameya Prabhu and Vishaal Udandarao and Ofir Press and Matthias Bethge},
-year={2024},
-eprint={},
-archivePrefix={arXiv},
-primaryClass={cs.ML}
+    title={CiteME: Can Language Models Accurately Cite Scientific Claims?},
+    author={Ori Press and Andreas Hochlehnert and Ameya Prabhu and Vishaal Udandarao and Ofir Press and Matthias Bethge},
+    year={2024},
+    eprint={},
+    archivePrefix={arXiv},
+    primaryClass={cs.ML}
 }
 ```
