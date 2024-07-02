@@ -22,7 +22,7 @@ We enable language models to search for papers, read them, and then pick the pap
 
 ## Dataset
 
-The hand curated version of the dataset can be found on [citeme.ai](https://www.citeme.ai).
+**The hand curated version of the dataset can be found on [citeme.ai](https://www.citeme.ai).**  
 It contains following columns:
 - `id`: A unique id that is used in all our experiments to reference a specific paper.
 - `excerpt`: The text excerpt describing the target paper.
@@ -44,17 +44,17 @@ CiteAgent requires following environment variables to function properly:
 - `TOGETHER_API_KEY`: Your together api key (for llama models)
 
 ### Run
-In order to run CiteAgent install the required python packages listed in the `requirements.txt`.
-```
-pip install -r requirements.txt
-```
+1. Install the required python packages listed in the `requirements.txt`.
+   ```
+   pip install -r requirements.txt
+   ```
 
-Then download the dataset from [citeme.ai](https://www.citeme.ai) and place it in the project folder as `DATASET.csv`.
+2. Download the dataset from [citeme.ai](https://www.citeme.ai) and place it in the project folder as `DATASET.csv`.
 
-Afterwards, run the `main.py` file.
-```
-python src/main.py
-```
+3. Run the `main.py` file.
+   ```
+   python src/main.py
+   ```
 
 ### Configuration
 
