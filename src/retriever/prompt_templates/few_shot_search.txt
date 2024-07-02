@@ -1,0 +1,916 @@
+You are given an excerpt from a paper, where a citation was deleted. I'm trying to find the citation (ignore the word [CITATION], that's just where the citation was deleted from. You will be asked to help me find the paper from which the citation was deleted. You are equipped with the following tools that will help you in your task: you can search, you can select to read a paper from the search results, or you can select a paper as your final answer.
+
+<FORMAT_INSTRUCTIONS>
+
+Keep in mind that you can only read or select papers after you search. You can always search, and then search again. You can also read a few papers consecutively, without searching again (as long as the papers appeared in your last search). 
+Your responses have to include one of the actions above.
+Before you take any action, provide your thoughts for doing so.
+Do not include anything other than your thoughts and an action in your responses.
+
+Here's an example of a search query, given an excerpt:
+
+The excerpt is:
+In this section, we evaluate the localization ability of CAM when trained on the ILSVRC 2014 benchmark dataset [CITATION]
+
+
+You would respond with:
+{
+    "reason": "The cited paper seems to be the ImageNet dataset paper. We’ll do a search to make sure.",
+    "action": {
+        "name": "search_citation_count"
+        "query": "ILSVRC 2014 benchmark"
+    }
+}
+
+
+You will then be given the following input:
+- Paper ID: cbb19236820a96038d000dc629225d36e0b6294a
+   Title: Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
+   Abstract: None
+   Citation Count: 9624
+
+- Paper ID: 0cae491292feccbc9ad1d864cf8b7144923ce6de
+   Title: A Scale Adaptive Kernel Correlation Filter Tracker with Feature Integration
+   Abstract: None
+   Citation Count: 1346
+
+- Paper ID: 425ab097fc695265c3361d39d1f9a07a810fd595
+   Title: Problem Definitions and Evaluation Criteria for the CEC 2014 Special Session and Competition on Single Objective Real-Parameter Numerical Optimization
+   Abstract: Research on the single objective optimization algorithms is the basis of the research on the more complex optimization algorithms such as multi-objective optimizations algorithms, niching algorithms, constrained optimization algorithms and so on. All new evolutionary and swarm algorithms are tested on single objective benchmark problems. In addition, these single objective benchmark problems can be transformed into dynamic, niching composition, computationally expensive and many other classes of problems. In the recent years various kinds of novel optimization algorithms have been proposed to solve real-parameter optimization problems, including the CEC'05 and CEC'13 Special Session on Real-Parameter Optimization [1][2]. Considering the comments on the CEC'13 test suite, we organize a new competition on real parameter single objective optimization. For this competition, we are developing benchmark problems with several novel features such as novel basic problems, composing test problems by extracting features dimension-wise from several problems, graded level of linkages, rotated trap problems, and so on. This competition excludes usage of surrogates or meta-models. There is a sub-competition to test the algorithms with a very small number of function evaluations in order emulate the computationally expensive optimization scenario. This sub-competition encourages the usage of surrogates and other approximation approaches. This special session is devoted to the approaches, algorithms and techniques for solving real parameter single objective optimization without making use of the exact equations of the test functions. We encourage all researchers to test their algorithms on the CEC'14 test suite which includes 30 benchmark functions. The participants are required to send the final results in the format specified in the technical report to the organizers. The organizers will present an overall analysis and comparison based on these results. We will also use statistical tests on convergence performance to compare algorithms that generate similar final solutions eventually. Papers on novel concepts that help us in understanding problem characteristics are also welcome.
+   Citation Count: 1329
+
+- Paper ID: c333778104f648c385b4631f7b4a859787e9d3d3
+   Title: A SICK cure for the evaluation of compositional distributional semantic models
+   Abstract: Shared and internationally recognized benchmarks are fundamental for the development of any computational system. We aim to help the research community working on compositional distributional semantic models (CDSMs) by providing SICK (Sentences Involving Compositional Knowldedge), a large size English benchmark tailored for them. SICK consists of about 10,000 English sentence pairs that include many examples of the lexical, syntactic and semantic phenomena that CDSMs are expected to account for, but do not require dealing with other aspects of existing sentential data sets (idiomatic multiword expressions, named entities, telegraphic language) that are not within the scope of CDSMs. By means of crowdsourcing techniques, each pair was annotated for two crucial semantic tasks: relatedness in meaning (with a 5-point rating scale as gold score) and entailment relation between the two elements (with three possible gold labels: entailment, contradiction, and neutral). The SICK data set was used in SemEval-2014 Task 1, and it freely available for research purposes.
+   Citation Count: 775
+
+- Paper ID: 80c3b84fddd0ddece79500af5e1afbd2b40e7ef8
+   Title: CDnet 2014: An Expanded Change Detection Benchmark Dataset
+   Abstract: Change detection is one of the most important lowlevel tasks in video analytics. In 2012, we introduced the changedetection.net (CDnet) benchmark, a video dataset devoted to the evalaution of change and motion detection approaches. Here, we present the latest release of the CDnet dataset, which includes 22 additional videos (70; 000 pixel-wise annotated frames) spanning 5 new categories that incorporate challenges encountered in many surveillance settings. We describe these categories in detail and provide an overview of the results of more than a dozen methods submitted to the IEEE Change DetectionWorkshop 2014. We highlight strengths and weaknesses of these methods and identify remaining issues in change detection.
+   Citation Count: 753
+
+- Paper ID: 3c74b636c0f74c1a0cbbd6e165c2760264044971
+   Title: The Visual Object Tracking VOT2014 Challenge Results
+   Abstract: None
+   Citation Count: 508
+
+- Paper ID: 4328ec9d98eff5d7eb70997f76d81b27849f3220
+   Title: Scalable, High-Quality Object Detection
+   Abstract: Current high-quality object detection approaches use the scheme of salience-based object proposal methods followed by post-classification using deep convolutional features. This spurred recent research in improving object proposal methods. However, domain agnostic proposal generation has the principal drawback that the proposals come unranked or with very weak ranking, making it hard to trade-off quality for running time. This raises the more fundamental question of whether high-quality proposal generation requires careful engineering or can be derived just from data alone. We demonstrate that learning-based proposal methods can effectively match the performance of hand-engineered methods while allowing for very efficient runtime-quality trade-offs. Using the multi-scale convolutional MultiBox (MSC-MultiBox) approach, we substantially advance the state-of-the-art on the ILSVRC 2014 detection challenge data set, with $0.5$ mAP for a single model and $0.52$ mAP for an ensemble of two models. MSC-Multibox significantly improves the proposal quality over its predecessor MultiBox~method: AP increases from $0.42$ to $0.53$ for the ILSVRC detection challenge. Finally, we demonstrate improved bounding-box recall compared to Multiscale Combinatorial Grouping with less proposals on the Microsoft-COCO data set.
+   Citation Count: 359
+
+- Paper ID: 0b202f2f9fe827148b77badbae80948b3088eef4
+   Title: The global information technology report 2014
+   Abstract: Executive summary When The Global Information Technology Report (GITR) and the Networked Readiness Index (NRI) were created more than 13 years ago, the attention of decision makers was focused on how to develop strategies that would allow them to benefit from what Time Magazine had described as “the new economy”: a new way of organizing and managing economic activity based on the new opportunities that the Internet provided for businesses. At present, the world is slowly emerging from one of the worst financial and economic crises in decades, and policymakers, business leaders, and civil society are looking into new opportunities that can consolidate growth, generate new employment, and create business opportunities. Information and communication technologies (ICTs) continue to rank high on the list as one of the key sources of new opportunities to foster innovation and boost economic and social prosperity, for both advanced and emerging economies. For more than 13 years, the NRI has provided decision makers with a useful conceptual framework to evaluate the impact of ICTs at a global level and to benchmark the ICT readiness and usage of their economies.
+   Citation Count: 239
+
+- Paper ID: c512bc16b5635822d233a334767bb3c554027925
+   Title: Static and Moving Object Detection Using Flux Tensor with Split Gaussian Models
+   Abstract: In this paper, we present a moving object detection system named Flux Tensor with Split Gaussian models (FTSG) that exploits the benefits of fusing a motion computation method based on spatio-temporal tensor formulation, a novel foreground and background modeling scheme, and a multi-cue appearance comparison. This hybrid system can handle challenges such as shadows, illumination changes, dynamic background, stopped and removed objects. Extensive testing performed on the CVPR 2014 Change Detection benchmark dataset shows that FTSG outperforms state-of-the-art methods.
+   Citation Count: 223
+
+- Paper ID: 15e28e884fb6c7eba2610e3dfcd5b40dadb14155
+   Title: DeepID-Net: multi-stage and deformable deep convolutional neural networks for object detection
+   Abstract: In this paper, we propose multi-stage and deformable deep convolutional neural networks for object detection. This new deep learning object detection diagram has innovations in multiple aspects. In the proposed new deep architecture, a new deformation constrained pooling (defpooling) layer models the deformation of object parts with geometric constraint and penalty. With the proposed multistage training strategy, multiple classifiers are jointly optimized to process samples at different difficulty levels. A ne w pre-training strategy is proposed to learn feature represe ntations more suitable for the object detection task and with good generalization capability. By changing the net structures, training strategies, adding and removing some key components in the detection pipeline, a set of models with large diversity are obtained, which significantly improves the effectiveness of modeling averaging. The proposed approach ranked #2 in ILSVRC 2014. It improves the mean averaged precision obtained by RCNN, which is the stateof-the-art of object detection, from31% to 45%. Detailed component-wise analysis is also provided through extensiv e experimental evaluation.
+   Citation Count: 153
+
+
+You would then reply:
+{
+    "reason": "Paper cbb19236820a96038d000dc629225d36e0b6294a seems to directly mention the ILSVRC 2014 benchmark in the abstract.",
+    "action": {
+        "name": "read",
+        "paper_id": "cbb19236820a96038d000dc629225d36e0b6294a"
+    }
+
+}
+
+
+You would then be given the following input:
+Spatial Pyramid Pooling in Deep Convolutional
+Networks for Visual Recognition
+Kaiming He1, Xiangyu Zhang2,⋆, Shaoqing Ren3,⋆, and Jian Sun1
+1Microsoft Research, China
+2Xi’an Jiaotong University, China
+3University of Science and Technology of China
+Abstract. Existing deep convolutional neural networks (CNNs) require
+aﬁ x e d - s i z e( e.g.224×224) input image. This r equirement is “artiﬁcial”
+and may hurt the recognition accuracy for the images or sub-images
+of an arbitrary size/scale. In this work, we equip the networks with a
+more principled pooling strategy, “spatial pyramid pooling”, to elimi-
+nate the above requirement. The new network structure, called SPP-net,
+can generate a ﬁxed-length representation regardless of image size/scale.
+By removing the ﬁxed-size limitation, we can improve all CNN-based
+image classiﬁcation methods in general. Our SPP-net achieves state-of-
+the-art accuracy on the datasets of ImageNet 2012, Pascal VOC 2007,
+and Caltech101.
+The power of SPP-net is more signiﬁcant in object detection. Us-
+ing SPP-net, we compute the feature maps from the entire image only
+once, and then pool features in arbitrary regions (sub-images) to gener-
+ate ﬁxed-length representations for training the detectors. This method
+avoids repeatedly computing the convolutional features. In processing
+test images, our method computes convolutional features 30-170 ×faster
+thantherecentleading methodR-CNN(and24-64 ×faster overall), while
+achieving better or comparable accuracy on Pascal VOC 2007.1
+1 Introduction
+We are witnessing a rapid, revolutionary change in our vision community,
+mainly caused by deep conv olutional neural networks (CNNs) [18] and the
+availability of large scale training data [6]. Deep-networks-based approaches
+have recently been substa ntially improving upon the state of the art in im-
+age classiﬁcation [16,31,24], object detection [12,33,24], many other recognition
+tasks [22,27,32,13], and even non-recognition tasks.
+However, there is a technical issue in the training and testing of the CNNs:
+the prevalent CNNs require a ﬁxedinput image size ( e.g., 224×224), which
+limits both the aspect ratio and the scale of the input image. When applied to
+images of arbitrarysizes, current methods mostly ﬁt the input image to the ﬁxed
+⋆This work was done when X. Zhang and S. Ren were interns at Microsoft Research.
+1A longer technical report of our paper is in http://arxiv.org/abs/1406.4729v1.
+pdf
+D. Fleet et al. (Eds.): ECCV 2014, Part III, LNCS 8691, pp. 346–361, 2014.
+c/circlecopyrtSpringer International Publishing Switzerland 2014Spatial Pyramid Pooling in Deep Convolutional Networks 347
+crop
+ warp
+spatial pyramid poolingcrop / warp
+conv layers image fc layers outputimage conv layers fc layers output
+Fig. 1.Top: cropping or warping to ﬁt a ﬁxed size. Middle: a conventional deep con-
+volutional network structure. Bottom: our spatial pyramid pooling network structure.
+size, either via cropping [16,31] or via warping [7,12], as shown in Fig. 1 (top).
+But the cropped region may not contain the entire object, while the warped
+content may result in unwanted geometri c distortion. Recogn ition accuracy can
+be compromiseddue to the content lossordistortion.Besides, apre-deﬁned scale
+(e.g., 224) may not be suitable when object scales vary. Fixing the input size
+overlooks the issues involving scales.
+So why do CNNs require a ﬁxed input size? A CNN mainly consists of two
+parts: convolutional layers, and fully-connected layers that follow. The convolu-tional layersoperate in a sliding-windowmanner and output feature maps which
+represent the spatial arrangement of the activations (Fig. 2). In fact, convolu-
+tional layers do not require a ﬁxed image size and can generate feature maps
+of any sizes. On the other hand, the fully-connected layers need to have ﬁxed-
+size/length input by their deﬁnition. Hence, the ﬁxed-size constraint comes onlyfrom the fully-connected layers, which exist at a deeper stage of the network.
+In this paper, we introduce a spatial pyramid pooling (SPP) [14,17] layer to
+remove the ﬁxed-size constraint of the network. Speciﬁcally, we add an SPPlayer on top of the last convolutional layer. The SPP layer pools the features
+and generates ﬁxed-lengt h outputs, which are then fed into the fully-connected
+layers (or other classiﬁers). In other words, we perform some information “ag-
+gregation” at a deeper stage of the network hierarchy (between convolutional
+layers and fully-connected layers) to avoid the need for cropping or warping atthe beginning. Fig. 1 (bottom) shows the change of the network architecture by
+introducing the SPP layer. We call the new network structure SPP-net.
+We believe that aggregation at a deeper stage is more physiologically sound
+and more compatible with the hierarchical information processing in our brains.
+When an object comes into our ﬁeld of view, it is more reasonable that our
+brains consider it as a whole instead of cropping it into several “views” at thebeginning. Similarly, it is unlikely that our brains distort all object candidates
+into ﬁxed-size regions for detecting/locating them. It is more likely that our
+brains handle arbitrarily-shaped objects at some deeper layers, by aggregating
+the already deeply processed infor mation from the previous layers.
+Spatialpyramidpooling[14,17](popularlyknownasspatialpyramidmatching
+or SPM [17]), as an extension of the Bag-of-Words (BoW) model [25], is one of
+the most successful methods in computer vision. It partitions the image into
+divisions from ﬁner to coarser levels, and aggregates local features in them. SPPhas long been a key component in the lead ing and competition-winning systems348 K. He et al.
+filter #175
+filter #55
+(a) image (b) feature maps (c) strongest activations
+filter #66
+filter #118
+(a) image (b) feature maps (c) strongest activations
+Fig. 2.Visualization of the feature maps. (a) Two images in Pascal VOC 2007. (b)
+The feature maps of some conv 5(the ﬁfth convolutional layer) ﬁlters. The arrows
+indicate the strongest responses and their corresponding positions in the images. (c)
+The ImageNet images that have the strongest responses of the corresponding ﬁlters.
+The green rectangles mark the receptive ﬁelds of the strongest responses.
+for classiﬁcation ( e.g., [30,28,21]) and detection ( e.g., [23]) before the recent
+prevalence of CNNs. Nevertheless, SP P has not been considered in the context
+of CNNs. We notethat SPPhas severalre markableproperties for deep CNNs: 1)
+SPP is able to generate a ﬁxed-length output regardless of the input size, while
+the sliding window pooling used in the previous deep networks [16] cannot; 2)
+SPP uses multi-level spatial bins, while the sliding window pooling uses only a
+single window size. Multi-level pooling has been shown to be robust to object
+deformations [17]; 3) SPP can pool featu res extracted at variable scales thanks
+to the ﬂexibility of input scales. Through experiments we show that all these
+factors elevate the recognitio n accuracy of deep networks.
+The ﬂexibility of SPP-net makes it possible to generate a full-image represen-
+tation for testing. Moreover, it also allows us to feed images with varying sizes
+or scales during training, which increases scale-invarianceand reduces the risk of
+over-ﬁtting. We develop a simple multi-size training method to exploit the prop-
+erties of SPP-net. Through a series of co ntrolled experiments, we demonstrate
+the gains of using multi-level pooling, full-image representations, and variable
+scales. On the ImageNet 2012 dataset, our network reduces the top-1 error by
+1.8% compared to its counterpart without SPP. The ﬁxed-length representa-
+tions given by this pre-trained network are also used to train SVM classiﬁers
+on other datasets. Our method achieves 91.4% accuracy on Caltech101 [9] and
+80.1% mean Average Precision (mAP) on Pascal VOC 2007 [8] using only a
+singlefull-image representation (single-view testing).
+SPP-net shows even greater strength i n object detection. In the leading ob-
+ject detection method R-CNN [12], the features from candidate windows are
+extracted via deep convolutional netwo rks. This method shows remarkable de-
+tection accuracy on both the VOC and ImageNet datasets. But the feature
+computation in R-CNN is time-consuming, because it repeatedly applies the
+deep convolutional networks to the raw pixels of thousands of warped regions
+per image. In this paper, we show that we can run the convolutional layers only
+onceon the entire image (regardless of the number of windows), and then ex-
+tract features by SPP-net on the feature maps. This method yields a speedupSpatial Pyramid Pooling in Deep Convolutional Networks 349
+of over one hundred times over R-CNN. Note that training/running a detector
+on the feature maps (rather than image regions) is actually a more popular idea[10,5,23,24]. But SPP-net inherits the power of the deep CNN feature maps and
+also the ﬂexibility of SPP on arbitrary window sizes, which leads to outstand-
+ing accuracy and eﬃciency. In our exper iment, the SPP-net-based system (built
+upon the R-CNN pipeline) computes convolutional features 30-170 ×faster than
+R-CNN, and is overall 24-64 ×faster, while has better o r comparable accuracy.
+We further propose a simple model comb ination method to achieve a new state-
+of-the-art result (mAP 60.9%) on the Pascal VOC 2007 detection task.
+2 Deep Networks with Spatial Pyramid Pooling
+2.1 Convolutional Layers and Feature Maps
+Consider the popular seven-layer architectures [16,31]. The ﬁrst ﬁve layers are
+convolutional,some of which are followed by pooling layers.These pooling layers
+can alsobe consideredas“convolutional”,in the sense that they areusing sliding
+windows. The last two layers are fully co nnected, with an N-way softmax as the
+output, where N is the number of categories.
+The deep network described above needs a ﬁxed image size. However, we no-
+tice the requirement of ﬁxed sizes is only due to the fully-connected layers that
+demand ﬁxed-length vectors as inputs. On the other hand, the convolutionallay-
+ers accept inputs of arbitrary sizes. The convolutional layers use sliding ﬁlters,and their outputs have roughly the same aspect ratio as the inputs. These out-
+puts are known as feature maps [18] - they involve not only the strength of the
+responses, but also their spatial positi ons. In Fig. 2, we visualize some feature
+maps. They are generated by some ﬁlters of the conv
+5layer.
+It is worth noticing that we generate the feature maps in Fig. 2 without ﬁxing
+the input size. These feature maps generated by deep convolutional layers are
+analogous to the feature maps in traditional methods [2,4]. In those methods,
+SIFT vectors [2] or image patches [4] ar e densely extracted and then encoded,
+e.g., by vector quantization [25,17,11], sparse coding [30,28], or Fisher kernels
+[21]. These encoded features consist of the feature maps, and are then pooled
+by Bag-of-Words (BoW) [25] or spatial pyramids [14,17]. Analogously, the deep
+convolutional features can be pooled in a similar way.
+2.2 The Spatial Pyramid Pooling Layer
+The convolutional layers accept arbitrary input sizes, but they produce outputs
+of variable sizes. The classiﬁers (SVM/softmax) or fully-connected layers require
+ﬁxed-length vectors. Such vectors can be generated by the Bag-of-Words (BoW)approach [25] that pools the features together. Spatial pyramid pooling [14,17]
+improves BoW in that it can maintain spatial information by pooling in local
+spatial bins. These spatial bins have sizes proportional to the image size, so thenumber of bins is ﬁxed regardless of the image size. This is in contrast to the350 K. He et al.
+convolutional layersfeature maps of conv 5
+(arbitrary size)
+fixed-length representation
+input image16×256-d 4×256-d 256-d…...
+…...
+spatial pyramid pooling layerfully-connected layers (fc 6, fc 7)
+Fig. 3.The network structure with a spatial pyramid pooling layer
+sliding window pooling of the previous deep networks [16], where the number of
+sliding windows depends on the input size.
+To adopt the deep network for images of arbitrary sizes, we replace the pool 5
+layer (the pooling layer after conv 5)w i t ha spatial pyramid pooling layer .F i g .3
+illustrates our method. In each spatial bin, we pool the responses of each ﬁlter(throughout this paper we use max pooling). The outputs of SPP are 256 M-
+d vectors with the number of bins denoted as M(256 is the number of conv
+5
+ﬁlters). The ﬁxed-dimensional vectors are the input to the fc layer (fc 6).
+With SPP, the input image can be of any sizes; this not only allows arbitrary
+aspect ratios, but also allows arbitrary scales. We can resize the input image
+to any scale ( e.g., min(w,h)=180, 224, ...) and apply the same deep network.
+When the input image is at diﬀerent scales, the network (with the same ﬁlter
+sizes) will extract features at diﬀerent s cales. The scales play important roles
+in traditional methods, e.g., the SIFT vectors are ofte n extracted at multiple
+scales [19,2] (determined by the sizes of the patches and Gaussian ﬁlters). We
+will show that the scales are also important for the accuracy of deep networks.
+2.3 Training the Network with the Spatial Pyramid Pooling Layer
+Theoretically, the above network structure can be trained with standard back-
+propagation [18], regardless of the i nput image size. But in practice the GPU
+implementations (such as convnet[16] and Caﬀe[7]) are preferably run on ﬁxed
+input images. Next we describe our training solution that takes advantage ofthese GPU implementations while st ill preserving the SPP behaviors.
+Single-Size Training. As in previous works, we ﬁrst consider a network taking
+a ﬁxed-size input (224 ×224) cropped from images. The cropping is for the pur-
+pose of data augmentation. For an image with a given size, we can pre-computethe bin sizes needed for spatial pyrami d pooling. Consider the feature mapsSpatial Pyramid Pooling in Deep Convolutional Networks 351
+[pool3x3]
+type=poolpool=maxinputs=conv5sizeX=5stride=4[pool2x2]
+type=poolpool=maxinputs=conv5sizeX=7stride=6[pool1x1]
+type=poolpool=maxinputs=conv5sizeX=13stride=13[fc6]
+type=fcoutputs=4096inputs=pool3x3,pool2x2,pool1x1
+Fig. 4.An example 3-level pyramid pooling in the convnet style [16]. Here sizeX is the
+size of the pooling window. This is for a network whose feature map size of conv 5is
+13×13, so pool 3×3,poo l 2×2,a n dpoo l 1×1will have3 ×3, 2×2, and 1 ×1 bins respectively.
+after conv 5that have a size of a×a(e.g.,1 3×13). With a pyramid level of
+n×nbins, we implement this pooling level as a sliding window pooling, where
+the window size win=⌈a/n⌉and stride str=⌊a/n⌋with⌈·⌉and⌊·⌋denoting
+ceilingand ﬂooroperations.With an l-levelpyramid,we implement lsuch layers.
+The next fc layer (fc 6) will concatenate the loutputs. Fig. 4 shows an example
+conﬁguration of 3-lev el pyramid pooling (3 ×3, 2×2, 1×1) in the convnet style
+[16].
+Themainpurposeofoursingle-sizetrainingistoenablethemulti-levelpooling
+behavior. Experiments show that this is one reason for the gain of accuracy.
+Multi-size Training. Our network with SPP is expected to be applied on
+images of any sizes. To address the issue of varying image sizes in training,we consider a set of pre-deﬁned sizes. We use two sizes (180 ×180 in addition to
+224×224)inthis paper.Ratherthancropasmaller180 ×180region,weresizethe
+aforementioned 224 ×224 region to 180 ×180. So the regions at both scales diﬀer
+only in resolution but not in content/layout. For the network to accept 180 ×180
+inputs, we implement another ﬁxed-size-input (180 ×180) network. The feature
+map size after conv
+5isa×a=1 0×10 in this case. Then we still use win=⌈a/n⌉
+andstr=⌊a/n⌋to implement each pyramid level. The output of the SPP layer
+of this 180-network has the same ﬁxed length as the 224-network. As such, this180-network has exactly the same parameters as the 224-network in each layer.
+In other words, during training we implement the varying-size-input SPP-net by
+two ﬁxed-size-input networks that share parameters.
+To reduce the overhead to switch from one network ( e.g., 224) to the other
+(e.g., 180),we train each full epoch on one network,and then switch to the other
+one (copyingall weights) for the next full epoch. This is iterated. In experiments,we ﬁnd the convergence rate of this multi-size training to be similar to the above
+single-size training. We train 70 epochs in total as is a common practice.
+The main purpose of multi-size training is to simulate the varying input
+sizes while still leveraging the existing well-optimized ﬁxed-size implementa-
+tions. In theory, we could use more scales/aspect ratios, with one network foreach scale/aspect ratio and all networks sharing weights, or we could develop a
+varying-size implementation to avoid switching. We will study this in the future.
+Note that the above single/multi-size solutions are for training only. At the
+testing stage, it is straightforward to apply SPP-net on images of any sizes.352 K. He et al.
+Table 1. Error rates in the validation set of ImageNet 2012. All the results are based
+onas i n g l en e t w o r k . The number of views in Overfeat depends on the scales and
+strides, for which there are several hundreds at the ﬁnest scale.
+method
+ test scale
+ test views
+ top-1 val top-5 val
+(a) Krizhevsky et al.[16]
+ 1
+ 10
+ 40.7 18.2
+(b1) Overfeat (fast) [24]
+ 1
+ -
+ 39.01 16.97
+(b2) Overfeat (fast) [24]
+ 6
+ -
+ 38.12 16.27
+(b3) Overfeat (big) [24]
+ 4
+ -
+ 35.74 14.18
+(c1) Howard (base) [15]
+ 3
+ 162
+ 37.0 15.8
+(c2) Howard (high-res) [15]
+ 3
+ 162
+ 36.8 16.2
+(d1) Zeiler & Fergus (ZF) (fast) [31]
+ 1
+ 10
+ 38.4 16.5
+(d2) Zeiler & Fergus (ZF) (big) [31]
+ 1
+ 10
+ 37.5 16.0
+(e1) our impl of ZF (fast)
+ 1
+ 10
+ 35.99 14.76
+(e2) SPP-net 4, single-size trained
+ 1
+ 10
+ 35.06 14.04
+(e3) SPP-net 6, single-size trained
+ 1
+ 10
+ 34.98 14.14
+(e4) SPP-net 6, multi-size trained
+ 1
+ 10
+ 34.60 13.64
+(e5) SPP-net 6, multi-size trained
+ 1
+ 8+2full
+ 34.16 13.57
+3 SPP-Net for Image Classiﬁcation
+3.1 Experiments on ImageNet 2012 Classiﬁcation
+We trainedournetworkonthe 1000-categorytraining set ofImageNet2012.Our
+training details follow the practices of previous work [16,31,15]. The images are
+resized so that the smaller dimension is 256, and a 224 ×224 crop is picked from
+the center or the four corners from the entire image2. The data are augmented
+by horizontal ﬂipping and color altering [16]. Dropout [16] is used on the two
+fully-connected layers. The learning rate starts from 0.01, and is divided by 10
+(twice) when the error plateaus. Our implementation is based on the publicly
+available code of convnet[16]. Our experiments are run on a GTX Titan GPU.
+As our baseline model, we implement the 7-layer network of Zeiler and Fer-
+gus’s (ZF) “fast” (smaller) model [31], which produces competitive results with
+a moderate training time (two weeks). The ﬁlter numbers (sizes) of the ﬁve con-
+volutional layers are: 96(7 ×7), 256(5 ×5),384(3 ×3), 384(3 ×3), and 256(3 ×3).
+T h eﬁ r s tt w ol a y e r sh a v eas t r i d eo f2 ,a n dt h er e s th a v eas t r i d eo f1 .T h eﬁ r s t
+two layers are followed by (sliding window) max pooling with a stride of 2, win-
+dow size of 3, and contrast normalization operations. The outputs of the two
+fully-connected layers are 4096-d. At the testing stage, we follow the standard
+10-view prediction in [16]: each view is a 224 ×224 crop and their scores are av-
+eraged. Our replication of this network gives 35.99% top-1 error (Tab. 1 (e1)),
+better than 38.4% (Tab. 1 (d1)) as reported in [31]. We believe this margin is
+because the corner crops are from the ent ire image (rather than from the corners
+of the central 256 ×256 square), as is reported in [15].
+Tab. 1 (e2)(e3) show our results using single-size training. The training and
+testing sizes are both 224 ×224. In these networks, the convolutional layers have
+the same structures as the ZF fast model, whereas the pooling layer after conv 5
+is replaced with the SPP layer. We use a 4-level pyramid. The pyramid is {4×4,
+2In [16], the four corners are picked from the corners of the central 256 ×256 crop.Spatial Pyramid Pooling in Deep Convolutional Networks 353
+Table 2. Error rates in the validation set of ImageNet 2012 using a single view. The
+images are resized so min( w, h) = 256. The crop view is the central 224 ×224
+method
+ test view
+ top-1 val
+SPP-net 6, single-size trained
+ 1c r o p
+ 38.01
+SPP-net 6, single-size trained
+ 1f u l l
+ 37.55
+SPP-net 6, multi-size trained
+ 1c r o p
+ 37.57
+SPP-net 6, multi-size trained
+ 1f u l l
+ 37.07
+3×3, 2×2, 1×1}, totally 30 bins and denoted as SPP-net 4(e2), or{6×6, 3×3,
+2×2, 1×1}, totally 50 bins and denoted as SPP-net 6(e3). In these results, we
+use 10-view prediction with each view a 224 ×224 crop. The top-1 error of SPP-
+net4is 35.06%, and of SPP-net 6is 34.98%. These results show considerable
+improvement overthe no-SPP counterpart (e1). Since we are still using the same
+10 cropped views as in (e1), this gain is solely because of multi-level pooling.
+Note that SPP-net 4has even fewer parameters than the no-SPP model (fc 6has
+30×256-d inputs instead of 36 ×256-d). So the gain of the multi-level pooling is
+notsimply due to more parameters. Rather, it is because the multi-level pooling
+is robust to the variance in object deformations and spatial layout [17].
+Tab. 1 (e4) shows our result using multi-size training. The training sizes are
+224 and 180, while the testing size is still 224. In (e4) we still use the 10 cropped
+views for prediction. The top-1 error drops to 34.60%. Note the networks in (e3)
+and (e4) have exactly the same structure and the same method for testing. So
+the gain is solely because of the multi-size training.
+Next we investigate the accuracy of the full-image views. We resize the image
+sothatmin( w,h)=256whilemaintainingitsaspectratio.TheSPP-netisapplied
+on this full image to compute the scores of the full view. For fair comparison, we
+alsoevaluatethe accuracyofthe singleviewinthe center224 ×224crop(whichis
+used in the above evaluations). The comp arisons of single-view testing accuracy
+are in Tab. 2. The top-1 error rates are reduced by about 0.5%. This shows the
+importance of maintaining the comple te content. Even though our network is
+trained using square images only, it generalizes well to other aspect ratios.
+In Tab. 1 (e5), we replace the two center cropped views with two full-views
+(with ﬂipping) for testing. The top-1 error is further reduced to 34.16%. This
+againindicatesthatthefull-imageviewsaremorerepresentativethanthecropped
+views3. The SPP-net in (e5) is better than the no-SPPcounterpart (e1) by 1.8%.
+There are previous CNN solutions [24,15] that deal with various scales/sizes,
+but they are based on model averaging. In Overfeat [24] and Howard’s method
+[15], the single network is applied at multiple scales in the testing stage, and the
+scores are averaged. Howard further trains two diﬀerent networks on low/high-
+resolution image regions and averages the scores. These methods generate much
+more views ( e.g., over hundreds), but the sizes of the views are still pre-deﬁned
+beforehand. On the contrary, our method builds the SPP structure into the
+3However, the combination of the 8 cropped views is still useful.354 K. He et al.
+Table 3. Classiﬁcation mAP in Pascal VOC 2007
+model
+ (a) plain net (b) SPP-net (c) SPP-net (d) SPP-net
+size
+ crop 224 ×224 crop 224 ×224 full 224 ×- full 392 ×-
+conv 4
+ 59.96 57.28 - -
+conv 5
+ 66.34 65.43 - -
+pool 5(6×6)
+ 69.14 68.76 70.82 71.67
+fc6
+ 74.86 75.55 77.32 78.78
+fc7
+ 75.90
+ 76.45
+ 78.39
+ 80.10
+Table 4. Classiﬁcation accuracy in Caltech101
+model
+ (a) plain net (b) SPP-net (c) SPP-net
+size
+ 224×224 crop 224 ×224 crop 224 ×-f u l l
+conv 4
+ 80.12 81.03 -
+conv 5
+ 84.40 83.76 -
+pool 5(6×6)
+ 87.98
+ 87.60 89.46
+SPP pool 5
+ - 89.47
+ 91.44
+fc6
+ 87.86 88.54 89.50
+fc7
+ 85.30 86.10 87.08
+network, and uses multi-size images to train a single network. Our method also
+enables the use of full-view as a single image representation.
+Our results can be potentially improved further. The usage of the SPP layer
+does not depend on the design of the convolutional layers. So our method may
+beneﬁt from, e.g., increased ﬁlter numbers or smaller strides [31,24]. Multiple-
+model averaging also may be applied. We will study these in the future.
+3.2 Experiments on Pascal VOC 2007 Classiﬁcation
+With the networkspre-trainedonImageNet,we extractrepresentationsfromthe
+images in other datasets and re-train SVM classiﬁers [1] for the new datasets. In
+theSVMtraining,weintentionallydonotuseanydataaugmentation(ﬂip/multi-
+view). We l 2-normalize the features and ﬁx the SVM’s soft margin parameter C
+to 1. We use our multi-size trained model in Tab. 1 (e5).
+The classiﬁcation task in Pascal VOC 2007 [8] involves 9,963 images in 20
+categories.5,011 images are for training, and the rest are for testing. The perfor-
+mance is evaluated by mAP. Tab. 3 summari zes our results for diﬀerent settings.
+We start from a baseline in Tab. 3 (a). The model is the one in Tab. 1 (e1)
+without SPP (“plain net”). To apply this model, we resize the image so that
+min(w,h) = 224, and crop the center 224 ×224 region. The SVM is trained via
+the features of a layer. On this dataset, the deeper the layer is, the better the
+result is. In col.(b), we replace the plain net with our SPP-net. As a ﬁrst-step
+comparison, we still apply the SPP-net on the center 224 ×224 crop. The results
+of the fc layers improve. This gain is mainly due to multi-level pooling.
+Tab. 3 (c) shows our results on the full images which are resized so that
+min(w,h) = 224. The results are considerably improved (78.39% vs.76.45%).
+This is due to the full-image representationthat maintains the complete content.
+Because the usage of our network does not depend on scale, we resize the
+images so that min( w,h)=sand use the same network to extract features. WeSpatial Pyramid Pooling in Deep Convolutional Networks 355
+Table 5. Classiﬁcation results for Pascal VOC2007 (mAP) and Caltech101 (accuracy).
+†numbers reported by [2].‡our implementation as in Tab. 3 (a)
+method
+ VOC 2007 Caltech101
+VQ [17]†
+56.07 74.41 ±1.0
+LLC [28]†
+57.66 76.95 ±0.4
+FK [21]†
+61.69 77.78 ±0.6
+DeCAF [7]
+ - 86.91 ±0.7
+Zeiler & Fergus [31]
+ 75.90‡86.5±0.5
+Oquab et al.[20]
+ 77.7 -
+ours
+ 80.10 91.44 ±0.7
+ﬁnd that s= 392 gives the best results (Tab. 3 (d)) based on the validation
+set. This is mainly because the objects occupy smaller regions in VOC 2007 but
+larger regions in ImageNet, so the relat ive object scales are diﬀerent between
+the two sets. These results indicate scale matters in the classiﬁcation tasks, and
+SPP-net can partially address this “scale mismatch” issue.
+Tab. 5 summarizes our results and the comparisons with previous state-of-
+the-art methods. Among these methods, VQ [17], LCC [28], and FK [21] are all
+based on spatial pyramids matching, and [7,31,20] are based on deep networks.
+Our method outperforms these methods. We note that Oquab et al.[20] achieves
+77.7% with 500 views per image, whereas we achieve 80.10% with a single
+full-image view. Our result may be further improved if data argumentation,
+multi-view testing, or network ﬁne-tuning is used.
+3.3 Experiments on Caltech101
+Caltech101 [9] contains 9,144 images in 102 categories (one background). We
+randomly sample 30 images/category for training and up to 50 images/category
+for testing. We repeat 10 random s plits and average the accuracy.
+Tab. 4 summarizes our results. There are some common observations in the
+Pascal VOC 2007 and Caltech101 results: SPP-net is better than the plain net
+(Tab. 4 (b) vs.(a)), and the full-view representation is better than the crop ((c)
+vs.(b)). But the results in Caltech101 have some diﬀerences with Pascal VOC.
+The fully-connected layers are less accurate, and the pool 5and SPP layers are
+better. This is possibly because the object categories in Caltech101 are less re-
+lated to those in ImageNet, and the deeper layers are more category-specialized.
+Further, we ﬁnd that the scale 224 has the best performance among the scales
+we tested on this dataset. This is mainly because the objects in Caltech101 also
+occupy large regions of the images, as is the case of ImageNet.
+Tab. 5 summarizes our results comparedwi th severalprevious state-of-the-art
+methods on Caltech101. Our result ( 91.44%) exceeds the previous state-of-the-
+art results (86.91%) by a substantial margin (4.5%).
+4 SPP-Net for Object Detection
+Deep networks have been used for object detection. We brieﬂy review the recent
+state-of-the-artR-CNNmethod[12].R-CNNﬁrstextractsabout2,000candidate356 K. He et al.
+windows fromeachimage via selective search[23]. Then the image regionin each
+window is warped to a ﬁxed size (227 ×227). A pre-trained deep network is used
+to extract the feature of each window. A binary SVM classiﬁer is then trained
+on these features for detection. R-CNN generates results of compelling quality
+and substantially outperforms previous methods (30% relative improvement!).However, because R-CNN repeatedly app lies the deep convolutional network to
+about 2,000 windows per image, it is time-consuming.
+Our SPP-net can also be used for object detection. We extract the feature
+mapsfromtheentireimageonlyonce.Thenweapplythespatialpyramidpooling
+on each candidate window of the feature maps to pool a ﬁxed-length represen-tation of this window (see Fig. 5). Because the time-consuming convolutional
+network is only applied once, our method can run orders of magnitude faster.
+Our method extracts window-wise features from regions of the feature maps,
+while R-CNN extracts directly from image regions. In previous works, the De-
+formable Part Model (DPM) [10] extracts from windows in HOG [5] feature
+maps, and Selective Search [23] extract s from windows in encoded SIFT feature
+maps. The Overfeat detection method [24] also extracts from windows in CNN
+feature maps, but needs to pre-deﬁne the window size. On the contrary, our
+method enables feature extraction in any windows from CNN feature maps.
+4.1 Detection Algorithm
+We use the “fast”mode ofselective search[23]to generateabout2,000candidate
+windows per image. Then we resize the image such that min( w,h)=s,a n d
+extract the feature maps of conv
+5from the entire image. We use our pre-trained
+model of Tab. 1 (e3) for the time being. In each candidate window, we use
+a 4-level spatial pyramid (1 ×1, 2×2, 3×3, 6×6, totally 50 bins) to pool the
+features. This generates a 12,800-d (256 ×50) representation for each window.
+These representations are provided to the fully-connected layers of the network.
+Then we train a binary linear SVM classiﬁe r for each category on these features.
+spatial pyramid 
+pooling layer
+feature maps of conv 5
+convolutional layersfixed-length representation
+input imagewindow…...fully-connected layers (fc 6, fc 7)
+Fig. 5.SPP-net for object detection. The feature maps are computed from the entire
+image. The pooling is performed in candidate windows.Spatial Pyramid Pooling in Deep Convolutional Networks 357
+Our implementation of the SVM training follows [23,12]. We use the ground-
+truth windows to generate the positive samples. The negative samples are those
+overlapping a positive window by at most 30% . Any negative sample is removed
+if it overlapsanother negative sample by more than 70%. We apply the standard
+hard negative mining [10] to train the SVM. This step is iterated once. It takes
+less than 1 hour to train SVMs for all 20 categories. In testing, the classiﬁer is
+used to score the candidate windows. Then we use non-maximum suppression
+[10] (threshold of 30%) on the scored windows.
+Our method can be improved by multi-scale feature extraction. We resize the
+image such that min( w,h)=s∈S={480,576,688,864,1200}, and compute
+the feature maps of conv 5for each scale. One strategy of combining the features
+from these scales is to pool them channel-by-channel. But we empirically ﬁnd
+that another strategy provides better results. For each candidate window, we
+choose a single scale s∈Ssuch that the scaled candidate window has a number
+of pixels closest to 224 ×224. Then we only use the feature maps extracted from
+this scale to compute the feature of this window. If the pre-deﬁned scales are
+dense enough and the window is approximately square, our method is roughly
+equivalent to resizing the window to 224 ×224 and then extracting features from
+it. Nevertheless, our method only requires computing the feature maps once (at
+eachscale)fromtheentireimage,regardlessofthenumberofcandidatewindows.
+We also ﬁne-tune our pre-trained network, following [12]. Since our features
+arepooled from the conv 5feature maps from windows of any sizes, for simplicity
+we only ﬁne-tune the fully-connected laye rs. In this case, the data layer accepts
+the ﬁxed-length pooled features after conv 5,a n dt h ef c 6,7layers and a new 21-
+way (one extra negativecategory) fc 8layer follow. The fc 8weights are initialized
+with a Gaussian distribution of σ=0.01. We ﬁx all the learning rates to 1e-4 and
+then adjust to 1e-5 for all three layers. During ﬁne-tuning, the positive samples
+are those overlapping with a ground-truth window by [0 .5,1], and the negative
+samples by [0 .1,0.5). In each mini-batch, 25% of the samples are positive. We
+train 250k mini-batches using the learning rate 1e-4, and then 50k mini-batches
+using 1e-5. Because we only ﬁne-tune the fc layers, the training is very fast
+and takes about 2 hours on the GPU. Also following [12], we use bounding
+box regression to post-process the prediction windows. The features used for
+regression are the pooled features from conv 5(as a counterpart of the pool 5
+features used in [12]). The windows used for the regression training are those
+overlapping with a ground-truth window by at least 50%.
+We will release the code to facilitate reproduction of the results4.
+4.2 Detection Results
+We evaluate our method on the detection task of the Pascal VOC 2007 dataset.
+Tab. 6 shows our results on various layers, by using 1-scale ( s=688) or 5-scale.
+Using the pool 5layers (in our case the pooled features), our result (44.9%)
+is comparable with R-CNN’s result (44.2%). But using the non-ﬁne-tuned fc 6
+4research.microsoft.com/en-us/um/people/kahe/358 K. He et al.
+Table 6. Detection results (mAP) on Pascal VOC 2007. “ft” and “bb” denote ﬁne-
+tuning and bounding box regression. More details are in our technical report
+SPP (1-sc) SPP (5-sc) R-CNN
+pool 5
+ 43.0 44.9
+ 44.2
+fc6
+ 42.5 44.8 46.2
+ftfc 6
+ 52.3 53.7
+ 53.1
+ftfc 7
+ 54.5 55.2
+ 54.2
+ftfc 7bb
+ 58.0 59.2 58.5
+conv time (GPU)
+ 0.053s 0.293s 8.96s
+fc time (GPU)
+ 0.089s 0.089s 0.07s
+total time (GPU)
+ 0.142s 0.382s 9.03s
+speedup ( vs.RCNN)
+ 64× 24× -
+Table 7. Comparisons of detection results on Pascal VOC 2007
+method
+ mAP
+ areo bike bird boat bottle bus car cat chair cow table dog horse mbike person plant sheep sofa train tv
+DPM [10]
+ 33.7
+33.2 60.3 10.2 16.1 27.3 54.3 58.2 23.0 20.0 24.1 26.7 12.7 58.1 48.2 43.2 12.0 21.1 36.1 46.0 43.5
+SS [23]
+ 33.8
+43.5 46.5 10.4 12.0 9.3 49.4 53.7 39.4 12.5 36.9 42.2 26.4 47.0 52.4 23.5 12.1 29.9 36.3 42.2 48.8
+Regionlet [29]
+ 41.7
+54.2 52.0 20.3 24.0 20.1 55.5 68.7 42.6 19.2 44.2 49.1 26.6 57.0 54.5 43.4 16.4 36.6 37.7 59.4 52.3
+DetNet [26]
+ 30.5
+29.2 35.2 19.4 16.7 3.7 53.2 50.2 27.2 10.2 34.8 30.2 28.2 46.6 41.7 26.2 10.3 32.8 26.8 39.8 47.0
+RCNN ftfc 7
+54.2
+64.2 69.7 50.0 41.9 32.0 62.6 71.0 60.7 32.7 58.5 46.5 56.1 60.6 66.8 54.2 31.5 52.8 48.9 57.9 64.7
+SPP ftfc 7
+55.2
+65.5 65.9 51.7 38.4 32.7 62.6 68.6 69.7 33.1 66.6 53.1 58.2 63.6 68.8 50.4 27.4 53.7 48.2 61.7 64.7
+RCNN ftfc 7bb
+58.5
+68.1 72.856.8 43.036.8 66.3 74.2 67.6 34.463.5 54.5 61.2 69.1 68.6 58.7 33.4 62.9 51.1 62.5 64.8
+SPP ftfc 7bb
+ 59.2
+ 68.669.7 57.141.2 40.5 66.3 71.3 72.5 34.4 67.3 61.7 63.1 71.0 69.8 57.6 29.7 59.0 50.2 65.2 68.0
+layers,ourresultsareinferior.An explanationisthatourfc layersarepre-trained
+using image regions,while in the detection casethey are used onthe feature map
+regions. The feature map regions can have strong activations near the window
+boundaries, while the image regions may not. This diﬀerence of usages can be
+addressed by ﬁne-tuning. Using the ﬁne-tuned fc layers (ftfc 6,7), our results are
+comparable with or slightly better than the ﬁne-tuned results of R-CNN. After
+bounding box regression, our 5-scale result ( 59.2%) is 0.7% better than R-CNN
+(58.5%), and our 1-scale result (58.0%) is 0.5% worse. In Tab. 7, we show the
+results for each category. Our method outperforms R-CNN in 11 categories, and
+has comparable numbers in two more categories.
+In Tab. 7, Selective Search (SS) [23] applies spatial pyramid matching on
+SIFT feature maps. DPM [10] and Regionlet [29] are based on HOG features [5].
+Regionlet improves to 46.1% [33] by combining various features including conv 5.
+DetectorNet [26] trains a deep networ k that outputs pixel-wise object masks.
+This method only needs to apply the deep network once to the entire image, as
+is the case for our method. But this method has lower mAP (30.5%).
+4.3 Complexity and Running Time
+Despite having comparable accuracy, our method is much faster than R-CNN.
+The complexity of the convolutional feature computation in R-CNN is O(n·
+2272) with the window number n(∼2000). This complexity of our method is
+O(r·s2)a tas c a l e s,w h e r e ris the aspect ratio. Assume ris about 4/3.
+In the single-scale version when s= 688, this complexity is about 1/160 of
+R-CNN’s; in the 5-scale version, this complexity is about 1/24 of R-CNN’s.Spatial Pyramid Pooling in Deep Convolutional Networks 359
+Table 8. Detection results on Pascal VOC 2007 using model combination
+method
+ mAP
+ areo bike bird boat bottle bus car cat chair cow table dog horse mbike person plant sheep sofa train tv
+SPP-net (1)
+ 59.2
+ 68.669.7 57.1 41.2 40.5 66.3 71.3 72.5 34.4 67.361.7 63.1 71.0 69.8 57.6 29.7 59.0 50.2 65.2 68.0
+SPP-net (2)
+ 59.1
+6 5 . 77 1 . 45 7 . 4 42.439.9 67.0 71.4 70.6 32.4 66.7 61.7 64.8 71.7 70.4 56.5 30.8 59.9 53.2 63.9 64.6
+combination
+ 60.9
+68.5 71.7 58.7 41.9 42.5 67.7 72.1 73.8 34.7 67.0 63.4 66.0 72.5 71.3 58.9 32.8 60.9 56.1 67.9 68.8
+In Tab. 6, we compare the experimental running time of the convolutional fea-
+ture computation. The implementation of R-CNN is from the code published by
+the authors implemented in Caﬀe[7]. For fair comparison, we also implement
+our feature computation in Caﬀe. In Tab. 6 we evaluate the average time of
+100 random VOC images using GPU. R-CNN takes 8.96s per image, while our
+1-scale version takes only 0.053s per image. So ours is 170 ×faster than R-CNN.
+Our 5-scale version takes 0.293s per image, so is 30 ×faster than R-CNN.
+Our convolutional feature computation is so fast that the computational time
+of fc layers takes a considerable portion. Tab. 6 shows that the GPU time of
+computing the 4,096-d fc 7features (from the conv 5feature maps) is 0.089s per
+image. Considering both convolutional and fully-connected features, our 1-scale
+version is 64 ×faster than R-CNN and is just 0.5% inferior in mAP; our 5-scale
+version is 24 ×faster and has better results. The overhead of the fc computation
+can be signiﬁcantly reduced if smaller fc layers are used, e.g., 1,024-d.
+We do not consider the window proposal time in the above comparison. The
+selective search window proposal [23] takes about 1-2 seconds per image on the
+CPU. There are recent works ( e.g., [3]) on reducing window proposal time to
+milliseconds. We will evaluate this and expect a fast entire system.
+4.4 Model Combination for Detection
+Model combination is an important strategy for boosting CNN-based classiﬁ-
+cation accuracy [16]. Next we propose a simple model combination method for
+detection. We pre-train another network in ImageNet, using the same struc-
+ture but diﬀerent random initializations. Then we repeat the above detection
+algorithm. Tab. 8 (SPP-net (2)) shows the results of this network. Its mAP is
+comparable with the ﬁrst network (59.1% vs.59.2%), and outperforms the ﬁrst
+networkin 11categories.Given the twomodels, we ﬁrstuse either model to score
+all candidate windows on the test image. Then we perform non-maximum sup-
+pression on the union of the two sets of candidate windows (with their scores).
+A more conﬁdent window given by one method can suppress those less conﬁdent
+given by the other method. After combination, the mAP is boosted to 60.9%
+(Tab. 8). In 17 out of all 20 categories the combination performs better than
+either individual model. This indicates that the two models are complementary.
+5C o n c l u s i o n
+Imagescalesandsizesareimportantinvisu alrecognition,butreceivedlittleconsid-
+erationinthecontextofdeepnetworks.W ehavesuggestedasolutiontotrainadeep360 K. He et al.
+networkwithanSPPlayer.TheresultingSPP-netshowsoutstandingaccuracyin
+classiﬁcation/detection t asks and greatly accelerates DNN-based detection. Our
+studies also show that many time-proven techniques/insights in computer vision
+canstillplayimportantrolesind eep-networks-basedrecognition.
+References
+1. Chang,C.C.,Lin,C.J.:Libsvm:Alibraryforsupportvectormachines.ACMTrans-
+actions on Intelligent Systems and Technology, TIST (2011)
+2. Chatﬁeld, K., Lempitsky, V., Vedaldi, A., Zisserman, A.: The devil is in the details:
+An evaluation of recent feature encoding methods. In: BMVC (2011)
+3. Cheng, M.M., Zhang, Z., Lin, W.Y., Torr, P.: BING: Binarized normed gradients
+for objectness estimation at 300fps. In: CVPR (2014)
+4. Coates, A., Ng, A.: The importance of encoding versus training with sparse coding
+and vector quantization. In: ICML (2011)
+5. Dalal, N., Triggs, B.: Histograms of oriented gradients for human detection. In:
+CVPR (2005)
+6. Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: Imagenet: A large-scale
+hierarchical image database. In: CVPR (2009)
+7 .D o n a h u e ,J . ,J i a ,Y . ,V i n y a l s ,O . ,H o ﬀ m a n ,J . ,Z h a n g ,N . ,T z e n g ,E . ,D a r r e l l ,
+T.: Decaf: A deep convolutional activation feature for generic visual recognition.
+ArXiv:1310.1531 (2013)
+8. Everingham, M., Van Gool, L., Williams, C.K.I., Winn, J., Zisserman, A.: The
+PASCAL Visual Object Classes Challenge, VOC 2007 Results (2007)
+9. Fei-Fei, L., Fergus, R., Perona, P.: Learning generative visual models from few
+training examples: An incremental bayesian approach tested on 101 object cate-
+gories. CVIU (2007)
+10. Felzenszwalb, P.F., Girshick, R.B., McAllester, D., Ramanan, D.: Object detection
+with discriminatively trained part-based models. PAMI (2010)
+11. van Gemert, J.C., Geusebroek, J.-M., Veenman, C.J., Smeulders, A.W.M.: Kernel
+codebooks for scene categorization. In: Forsyth, D., Torr, P., Zisserman, A. (eds.)
+ECCV 2008, Part III. LNCS, vol. 5304, pp. 696–709. Springer, Heidelberg (2008)
+12. Girshick, R., Donahue, J., Darrell, T., Malik, J.: Rich feature hierarchies for accu-
+rate object detection and semantic segmentation. In: CVPR (2014)
+13. Gong, Y., Wang, L., Guo, R., Lazebnik, S.: Multi-scale orderless pooling of deep
+convolutional activation features. ArXiv:1403.1840 (2014)
+14. Grauman, K., Darrell, T.: The pyramid match kernel: Discriminative classiﬁcation
+with sets of image features. In: ICCV (2005)
+15. Howard, A.G.: Some improvements on deep convolutional neural network based
+image classiﬁcation. ArXiv:1312.5402 (2013)
+16. Krizhevsky, A., Sutskever, I., Hinton, G.: Imagenet classiﬁcation with deep convo-
+lutional neural networks. In: NIPS (2012)
+17. Lazebnik, S., Schmid, C., Ponce, J.: Beyond bags of features: Spatial pyramid
+matching for recognizing natural scene categories. In: CVPR (2006)
+18. LeCun, Y., Boser, B., Denker, J.S., Henderson, D., Howard, R.E., Hubbard, W.,
+Jackel, L.D.: Backpropagation applied to handwritten zip code recognition. Neural
+Computation (1989)
+19. Lowe, D.G.: Distinctive image features from scale-invariant keypoints. IJCV (2004)Spatial Pyramid Pooling in Deep Convolutional Networks 361
+20. Oquab, M., Bottou, L., Laptev, I., Sivic, J., et al.: Learning and transferring mid-
+level image representations using convolutional neural networks. In: CVPR (2014)
+21. Perronnin, F., S´ anchez, J., Mensink, T.: Improving the ﬁsher kernel for large-scale
+image classiﬁcation. In:Daniilidis, K., Maragos, P., Paragios, N.(eds.) ECCV 2010,
+Part IV. LNCS, vol. 6314, pp. 143–156. Springer, Heidelberg (2010)
+22. Razavian, A.S., Azizpour, H., Sullivan, J., Carlsson, S.: Cnn features oﬀ-the-shelf:
+An astounding ba seline for recognit on. In: CVPR 2014, Deep Vision Workshop
+(2014)
+23. van de Sande, K.E., Uijlings, J.R., Gevers, T., Smeulders, A.W.: Segmentation as
+selective search for object recognition. In: ICCV (2011)
+24. Sermanet, P., Eigen, D., Zhang, X., Mathieu, M., Fergus, R., LeCun, Y.: Overfeat:
+Integrated recognition, localization and detection using convolutional networks.ArXiv:1312.6229 (2013)
+25. Sivic, J., Zisserman, A.: Video google: A text retrieval approach to object matching
+in videos. In: ICCV (2003)
+26. Szegedy, C., Toshev, A., Erhan, D.: Deep neural networks for object detection. In:
+NIPS (2013)
+27. Taigman, Y.,Yang,M., Ranzato,M., Wolf,L.:Deepface: Closing thegap tohuman-
+level performance in face veriﬁcation. In: CVPR (2014)
+28. Wang, J., Yang,J., Yu,K., Lv,F., Huang, T., Gong, Y.: Locality-constrained linear
+coding for image classiﬁcation. In: CVPR (2010)
+29. Wang, X., Yang, M., Zhu, S., Lin, Y.: Regionlets for generic object detection. In:
+ICCV (2013)
+30. Yang, J., Yu, K., Gong, Y., Huang, T.: Linear spatial pyramid matching using
+sparse coding for image classiﬁcation. In: CVPR (2009)
+31. Zeiler, M.D., Fergus, R.: Visualizing and understanding convolutional neural net-
+works. ArXiv:1311.2901 (2013)
+32. Zhang, N., Paluri, M., Ranzato, M., Darrell, T., Bourdevr, L.: Panda: Pose aligned
+networks for deep attribute modeling. In: CVPR (2014)
+33. Zou, W.Y., Wang, X., Sun, M., Lin, Y.: Generic object detection with dense neural
+patterns and regionlets. ArXiv:1404.4316 (2014)
+
+
+You would then reply:
+{
+    "reason": "Based on the text from the paper “Based on this work, we attended the competition of ILSVRC 2014 [26]”, we go to the paper cited at [26] and find its title: ImageNet Large Scale Visual Recognition Challenge.",
+    "action": {
+      "name": "search_citation_count",
+      "query": "ImageNet Large Scale Visual Recognition Challenge"
+    }
+}
+
+
+You would then receive the following input:
+- Paper ID: eb42cf88027de515750f230b23b1a057dc782108
+   Title: Very Deep Convolutional Networks for Large-Scale Image Recognition
+   Abstract: In this work we investigate the effect of the convolutional network depth on its accuracy in the large-scale image recognition setting. Our main contribution is a thorough evaluation of networks of increasing depth using an architecture with very small (3x3) convolution filters, which shows that a significant improvement on the prior-art configurations can be achieved by pushing the depth to 16-19 weight layers. These findings were the basis of our ImageNet Challenge 2014 submission, where our team secured the first and the second places in the localisation and classification tracks respectively. We also show that our representations generalise well to other datasets, where they achieve state-of-the-art results. We have made our two best-performing ConvNet models publicly available to facilitate further research on the use of deep visual representations in computer vision.
+   Citation Count: 88717
+
+- Paper ID: d2c733e34d48784a37d717fe43d9e93277a8c53e
+   Title: ImageNet: A large-scale hierarchical image database
+   Abstract: The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500-1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.
+   Citation Count: 52920
+
+- Paper ID: e15cf50aa89fee8535703b9f9512fca5bfc43327
+   Title: Going deeper with convolutions
+   Abstract: We propose a deep convolutional neural network architecture codenamed Inception that achieves the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC14). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. By a carefully crafted design, we increased the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC14 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.
+   Citation Count: 39686
+
+- Paper ID: e74f9b7f8eec6ba4704c206b93bc8079af3da4bd
+   Title: ImageNet Large Scale Visual Recognition Challenge
+   Abstract: None
+   Citation Count: 35026
+
+- Paper ID: cbb19236820a96038d000dc629225d36e0b6294a
+   Title: Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
+   Abstract: None
+   Citation Count: 9630
+
+- Paper ID: f01fc808592ea7c473a69a6e7484040a435f36d9
+   Title: Long-term recurrent convolutional networks for visual recognition and description
+   Abstract: Models based on deep convolutional networks have dominated recent image interpretation tasks; we investigate whether models which are also recurrent, or “temporally deep”, are effective for tasks involving sequences, visual and otherwise. We develop a novel recurrent convolutional architecture suitable for large-scale visual learning which is end-to-end trainable, and demonstrate the value of these models on benchmark video recognition tasks, image description and retrieval problems, and video narration challenges. In contrast to current models which assume a fixed spatio-temporal receptive field or simple temporal averaging for sequential processing, recurrent convolutional models are “doubly deep” in that they can be compositional in spatial and temporal “layers”. Such models may have advantages when target concepts are complex and/or training data are limited. Learning long-term dependencies is possible when nonlinearities are incorporated into the network state updates. Long-term RNN models are appealing in that they directly can map variable-length inputs (e.g., video frames) to variable length outputs (e.g., natural language text) and can model complex temporal dynamics; yet they can be optimized with backpropagation. Our recurrent long-term models are directly connected to modern visual convnet models and can be jointly trained to simultaneously learn temporal dynamics and convolutional perceptual representations. Our results show such models have distinct advantages over state-of-the-art models for recognition or generation which are separately defined and/or optimized.
+   Citation Count: 5726
+
+- Paper ID: 1109b663453e78a59e4f66446d71720ac58cec25
+   Title: OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks
+   Abstract: We present an integrated framework for using Convolutional Networks for classification, localization and detection. We show how a multiscale and sliding window approach can be efficiently implemented within a ConvNet. We also introduce a novel deep learning approach to localization by learning to predict object boundaries. Bounding boxes are then accumulated rather than suppressed in order to increase detection confidence. We show that different tasks can be learned simultaneously using a single shared network. This integrated framework is the winner of the localization task of the ImageNet Large Scale Visual Recognition Challenge 2013 (ILSVRC2013) and obtained very competitive results for the detection and classifications tasks. In post-competition work, we establish a new state of the art for the detection task. Finally, we release a feature extractor from our best model called OverFeat.
+   Citation Count: 4838
+
+- Paper ID: b8de958fead0d8a9619b55c7299df3257c624a96
+   Title: DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition
+   Abstract: We evaluate whether features extracted from the activation of a deep convolutional network trained in a fully supervised fashion on a large, fixed set of object recognition tasks can be repurposed to novel generic tasks. Our generic tasks may differ significantly from the originally trained tasks and there may be insufficient labeled or unlabeled data to conventionally train or adapt a deep architecture to the new tasks. We investigate and visualize the semantic clustering of deep convolutional features with respect to a variety of such tasks, including scene recognition, domain adaptation, and fine-grained recognition challenges. We compare the efficacy of relying on various network levels to define a fixed feature, and report novel results that significantly outperform the state-of-the-art on several important vision challenges. We are releasing DeCAF, an open-source implementation of these deep convolutional activation features, along with all associated network parameters to enable vision researchers to be able to conduct experimentation with deep representations across a range of visual concept learning paradigms.
+   Citation Count: 4781
+
+- Paper ID: c08f5fa876181fc040d76c75fe2433eee3c9b001
+   Title: Learning and Transferring Mid-level Image Representations Using Convolutional Neural Networks
+   Abstract: Convolutional neural networks (CNN) have recently shown outstanding image classification performance in the large- scale visual recognition challenge (ILSVRC2012). The success of CNNs is attributed to their ability to learn rich mid-level image representations as opposed to hand-designed low-level features used in other image classification methods. Learning CNNs, however, amounts to estimating millions of parameters and requires a very large number of annotated image samples. This property currently prevents application of CNNs to problems with limited training data. In this work we show how image representations learned with CNNs on large-scale annotated datasets can be efficiently transferred to other visual recognition tasks with limited amount of training data. We design a method to reuse layers trained on the ImageNet dataset to compute mid-level image representation for images in the PASCAL VOC dataset. We show that despite differences in image statistics and tasks in the two datasets, the transferred representation leads to significantly improved results for object and action classification, outperforming the current state of the art on Pascal VOC 2007 and 2012 datasets. We also show promising results for object and action localization.
+   Citation Count: 3092
+
+- Paper ID: 4aa4069693bee00d1b0759ca3df35e59284e9845
+   Title: DeViSE: A Deep Visual-Semantic Embedding Model
+   Abstract: Modern visual recognition systems are often limited in their ability to scale to large numbers of object categories. This limitation is in part due to the increasing difficulty of acquiring sufficient training data in the form of labeled images as the number of object categories grows. One remedy is to leverage data from other sources - such as text data - both to train visual models and to constrain their predictions. In this paper we present a new deep visual-semantic embedding model trained to identify visual objects using both labeled image data as well as semantic information gleaned from unannotated text. We demonstrate that this model matches state-of-the-art performance on the 1000-class ImageNet object recognition challenge while making more semantically reasonable errors, and also show that the semantic information can be exploited to make predictions about tens of thousands of image labels not observed during training. Semantic knowledge improves such zero-shot predictions achieving hit rates of up to 18% across thousands of novel labels never seen by the visual model.
+   Citation Count: 2601
+
+
+You would then reply:
+{
+   "reason": "Given that the paper with id e74f9b7f8eec6ba4704c206b93bc8079af3da4bd matches exactly what we’re looking for, we’ll select it and end our search.",
+   "action": {
+      "name": "select",
+      "paper_id": "e74f9b7f8eec6ba4704c206b93bc8079af3da4bd"
+   }
+}

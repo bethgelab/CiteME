@@ -1,0 +1,157 @@
+You are given an excerpt from a paper, where a citation was deleted. I'm trying to find the citation (ignore the word [CITATION], that's just where the citation was deleted from. You will be asked to help me find the paper from which the citation was deleted. You are equipped with the following tools that will help you in your task: you can search or you can select a paper as your final answer.
+
+<FORMAT_INSTRUCTIONS>
+
+Keep in mind that you can only select papers after you search. You can always search, and then search again.
+Your responses have to include one of the actions above.
+Before you take any action, provide your thoughts for doing so.
+Do not include anything other than your thoughts and an action in your responses.
+
+Here's an example of a search query, given an excerpt:
+
+The excerpt is:
+To evaluate the projection quality, we estimate pixel-level and perceptual-level differences between target images and reconstructed images, which are mean square error (MSE) and learned perceptual image patch similarity (LPIPS) [CITATION], respectively.
+
+You would answer:
+{
+    "reason": "The paper we're looking for is a metric called LPIPS. As this is a specific term, we'll search by citations and not by relevance.",
+    "action": {
+        "name": "search_citation_count",
+        "query": "LPIPS metric"
+    }
+}
+
+Then, you would be given the following input:
+- Paper ID: 8674494bd7a076286b905912d26d47f7501c4046
+   Title: PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space
+   Abstract: Few prior works study deep learning on point sets. PointNet by Qi et al. is a pioneer in this direction. However, by design PointNet does not capture local structures induced by the metric space points live in, limiting its ability to recognize fine-grained patterns and generalizability to complex scenes. In this work, we introduce a hierarchical neural network that applies PointNet recursively on a nested partitioning of the input point set. By exploiting metric space distances, our network is able to learn local features with increasing contextual scales. With further observation that point sets are usually sampled with varying densities, which results in greatly decreased performance for networks trained on uniform densities, we propose novel set learning layers to adaptively combine features from multiple scales. Experiments show that our network called PointNet++ is able to learn deep point set features efficiently and robustly. In particular, results significantly better than state-of-the-art have been obtained on challenging benchmarks of 3D point clouds.
+   Citation Count: 8390
+
+- Paper ID: c468bbde6a22d961829e1970e6ad5795e05418d1
+   Title: The Unreasonable Effectiveness of Deep Features as a Perceptual Metric
+   Abstract: While it is nearly effortless for humans to quickly assess the perceptual similarity between two images, the underlying processes are thought to be quite complex. Despite this, the most widely used perceptual metrics today, such as PSNR and SSIM, are simple, shallow functions, and fail to account for many nuances of human perception. Recently, the deep learning community has found that features of the VGG network trained on ImageNet classification has been remarkably useful as a training loss for image synthesis. But how perceptual are these so-called "perceptual losses"? What elements are critical for their success? To answer these questions, we introduce a new dataset of human perceptual similarity judgments. We systematically evaluate deep features across different architectures and tasks and compare them with classic metrics. We find that deep features outperform all previous metrics by large margins on our dataset. More surprisingly, this result is not restricted to ImageNet-trained VGG features, but holds across different deep architectures and levels of supervision (supervised, self-supervised, or even unsupervised). Our results suggest that perceptual similarity is an emergent property shared across deep visual representations.
+   Citation Count: 7515
+
+- Paper ID: 78947497cbbffc691aac3f590d972130259af9ce
+   Title: Distance Metric Learning for Large Margin Nearest Neighbor Classification
+   Abstract: The accuracy of k-nearest neighbor (kNN) classification depends significantly on the metric used to compute distances between different examples. In this paper, we show how to learn a Mahalanobis distance metric for kNN classification from labeled examples. The Mahalanobis metric can equivalently be viewed as a global linear transformation of the input space that precedes kNN classification using Euclidean distances. In our approach, the metric is trained with the goal that the k-nearest neighbors always belong to the same class while examples from different classes are separated by a large margin. As in support vector machines (SVMs), the margin criterion leads to a convex optimization based on the hinge loss. Unlike learning in SVMs, however, our approach requires no modification or extension for problems in multiway (as opposed to binary) classification. In our framework, the Mahalanobis distance metric is obtained as the solution to a semidefinite program. On several data sets of varying size and difficulty, we find that metrics trained in this way lead to significant improvements in kNN classification. Sometimes these results can be further improved by clustering the training examples and learning an individual metric within each cluster. We show how to learn and combine these local metrics in a globally integrated manner.
+   Citation Count: 5556
+
+- Paper ID: 7533d30329cfdbf04ee8ee82bfef792d08015ee5
+   Title: METEOR: An Automatic Metric for MT Evaluation with Improved Correlation with Human Judgments
+   Abstract: We describe METEOR, an automatic metric for machine translation evaluation that is based on a generalized concept of unigram matching between the machineproduced translation and human-produced reference translations. Unigrams can be matched based on their surface forms, stemmed forms, and meanings; furthermore, METEOR can be easily extended to include more advanced matching strategies. Once all generalized unigram matches between the two strings have been found, METEOR computes a score for this matching using a combination of unigram-precision, unigram-recall, and a measure of fragmentation that is designed to directly capture how well-ordered the matched words in the machine translation are in relation to the reference. We evaluate METEOR by measuring the correlation between the metric scores and human judgments of translation quality. We compute the Pearson R correlation value between its scores and human quality assessments of the LDC TIDES 2003 Arabic-to-English and Chinese-to-English datasets. We perform segment-bysegment correlation, and show that METEOR gets an R correlation value of 0.347 on the Arabic data and 0.331 on the Chinese data. This is shown to be an improvement on using simply unigramprecision, unigram-recall and their harmonic F1 combination. We also perform experiments to show the relative contributions of the various mapping modules.
+   Citation Count: 4832
+
+- Paper ID: 326cfa1ffff97bd923bb6ff58d9cb6a3f60edbe5
+   Title: The Earth Mover's Distance as a Metric for Image Retrieval
+   Abstract: None
+   Citation Count: 4708
+
+- Paper ID: cfaae9b6857b834043606df3342d8dc97524aa9d
+   Title: Learning a similarity metric discriminatively, with application to face verification
+   Abstract: We present a method for training a similarity metric from data. The method can be used for recognition or verification applications where the number of categories is very large and not known during training, and where the number of training samples for a single category is very small. The idea is to learn a function that maps input patterns into a target space such that the L/sub 1/ norm in the target space approximates the "semantic" distance in the input space. The method is applied to a face verification task. The learning process minimizes a discriminative loss function that drives the similarity metric to be small for pairs of faces from the same person, and large for pairs from different persons. The mapping from raw to the target space is a convolutional network whose architecture is designed for robustness to geometric distortions. The system is tested on the Purdue/AR face database which has a very high degree of variability in the pose, lighting, expression, position, and artificial occlusions such as dark glasses and obscuring scarves.
+   Citation Count: 3885
+
+- Paper ID: eb51cb223fb17995085af86ac70f765077720504
+   Title: Kademlia: A Peer-to-Peer Information System Based on the XOR Metric
+   Abstract: None
+   Citation Count: 3429
+
+- Paper ID: d1a2d203733208deda7427c8e20318334193d9d7
+   Title: Distance Metric Learning with Application to Clustering with Side-Information
+   Abstract: Many algorithms rely critically on being given a good metric over their inputs. For instance, data can often be clustered in many "plausible" ways, and if a clustering algorithm such as K-means initially fails to find one that is meaningful to a user, the only recourse may be for the user to manually tweak the metric until sufficiently good clusters are found. For these and other applications requiring good metrics, it is desirable that we provide a more systematic way for users to indicate what they consider "similar." For instance, we may ask them to provide examples. In this paper, we present an algorithm that, given examples of similar (and, if desired, dissimilar) pairs of points in ℝn, learns a distance metric over ℝn that respects these relationships. Our method is based on posing metric learning as a convex optimization problem, which allows us to give efficient, local-optima-free algorithms. We also demonstrate empirically that the learned metrics can be used to significantly improve clustering performance.
+   Citation Count: 3220
+
+- Paper ID: 889c81b4d7b7ed43a3f69f880ea60b0572e02e27
+   Title: Generalized Intersection Over Union: A Metric and a Loss for Bounding Box Regression
+   Abstract: Intersection over Union (IoU) is the most popular evaluation metric used in the object detection benchmarks. However, there is a gap between optimizing the commonly used distance losses for regressing the parameters of a bounding box and maximizing this metric value. The optimal objective for a metric is the metric itself. In the case of axis-aligned 2D bounding boxes, it can be shown that IoU can be directly used as a regression loss. However, IoU has a plateau making it infeasible to optimize in the case of non-overlapping bounding boxes. In this paper, we address the this weakness by introducing a generalized version of IoU as both a new loss and a new metric. By incorporating this generalized IoU ( GIoU) as a loss into the state-of-the art object detection frameworks, we show a consistent improvement on their performance using both the standard, IoU based, and new, GIoU based, performance measures on popular object detection benchmarks such as PASCAL VOC and MS COCO.
+   Citation Count: 2981
+
+- Paper ID: bdbfa34e186cfae8801d4c7561cae4e8b6f7b2a0
+   Title: a high-throughput path metric for multi-hop wireless routing
+   Abstract: This paper presents the expected transmission count metric (ETX), which finds high-throughput paths on multi-hop wireless networks. ETX minimizes the expected total number of packet transmissions (including retransmissions) required to successfully deliver a packet to the ultimate destination. The ETX metric incorporates the effects of link loss ratios, asymmetry in the loss ratios between the two directions of each link, and interference among the successive links of a path. In contrast, the minimum hop-count metric chooses arbitrarily among the different paths of the same minimum length, regardless of the often large differences in throughput among those paths, and ignoring the possibility that a longer path might offer higher throughput.This paper describes the design and implementation of ETX as a metric for the DSDV and DSR routing protocols, as well as modifications to DSDV and DSR which allow them to use ETX. Measurements taken from a 29-node 802.11b test-bed demonstrate the poor performance of minimum hop-count, illustrate the causes of that poor performance, and confirm that ETX improves performance. For long paths the throughput improvement is often a factor of two or more, suggesting that ETX will become more useful as networks grow larger and paths become longer.
+   Citation Count: 2808
+
+Then, you would respond with:
+{
+    "reason": "Upon reading the abstract, and noting the amount of citations that the paper has, it seems that the paper with the id c468bbde6a22d961829e1970e6ad5795e05418d1 is the paper that introduced the LPIPS metric, which is exactly what we're looking for.",
+    "action": {
+        "name": "select",
+        "paper_id": "c468bbde6a22d961829e1970e6ad5795e05418d1"
+    }
+}
+
+
+Here is another example:
+
+The excerpt is:
+Self-supervised Learning in NLP. Pre-training has been very successful in advancing natural language understand ing (McCann et al., 2017; Peters et al., 2018; Radford et al., 2018; Baevski et al., 2019; Devlin et al., 2019; Yang et al., 2019; Brown et al., 2020). The most prominent model is BERT [CITATION] which solves a masked prediction task where some of the input tokens are blanked out in order to be predicted given the remaining input.
+
+You would answer:
+{
+    "reason": "This excerpt specifically mentions the BERT model.",
+    "action": {
+        "name": "search_relevance",
+        "query": "BERT model"
+    }
+}
+
+Then, you would be given the following input:
+- Paper ID: 80cf2a6af4200ecfca1c18fc89de16148f1cd4bf
+   Title: Patient Knowledge Distillation for BERT Model Compression
+   Abstract: Pre-trained language models such as BERT have proven to be highly effective for natural language processing (NLP) tasks. However, the high demand for computing resources in training such models hinders their application in practice. In order to alleviate this resource hunger in large-scale model training, we propose a Patient Knowledge Distillation approach to compress an original large model (teacher) into an equally-effective lightweight shallow network (student). Different from previous knowledge distillation methods, which only use the output from the last layer of the teacher network for distillation, our student model patiently learns from multiple intermediate layers of the teacher model for incremental knowledge extraction, following two strategies: (i) PKD-Last: learning from the last k layers; and (ii) PKD-Skip: learning from every k layers. These two patient distillation schemes enable the exploitation of rich information in the teacher’s hidden layers, and encourage the student model to patiently learn from and imitate the teacher through a multi-layer distillation process. Empirically, this translates into improved results on multiple NLP tasks with a significant gain in training efficiency, without sacrificing model accuracy.
+   Citation Count: 695
+
+- Paper ID: df2b0e26d0599ce3e70df8a9da02e51594e0e992
+   Title: BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+   Abstract: We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7% (4.6% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).
+   Citation Count: 74887
+
+- Paper ID: a54b56af24bb4873ed0163b77df63b92bd018ddc
+   Title: DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter
+   Abstract: As Transfer Learning from large-scale pre-trained models becomes more prevalent in Natural Language Processing (NLP), operating these large models in on-the-edge and/or under constrained computational training or inference budgets remains challenging. In this work, we propose a method to pre-train a smaller general-purpose language representation model, called DistilBERT, which can then be fine-tuned with good performances on a wide range of tasks like its larger counterparts. While most prior work investigated the use of distillation for building task-specific models, we leverage knowledge distillation during the pre-training phase and show that it is possible to reduce the size of a BERT model by 40%, while retaining 97% of its language understanding capabilities and being 60% faster. To leverage the inductive biases learned by larger models during pre-training, we introduce a triple loss combining language modeling, distillation and cosine-distance losses. Our smaller, faster and lighter model is cheaper to pre-train and we demonstrate its capabilities for on-device computations in a proof-of-concept experiment and a comparative on-device study.
+   Citation Count: 5561
+
+- Paper ID: 077f8329a7b6fa3b7c877a57b81eb6c18b5f87de
+   Title: RoBERTa: A Robustly Optimized BERT Pretraining Approach
+   Abstract: Language model pretraining has led to significant performance gains but careful comparison between different approaches is challenging. Training is computationally expensive, often done on private datasets of different sizes, and, as we will show, hyperparameter choices have significant impact on the final results. We present a replication study of BERT pretraining (Devlin et al., 2019) that carefully measures the impact of many key hyperparameters and training data size. We find that BERT was significantly undertrained, and can match or exceed the performance of every model published after it. Our best model achieves state-of-the-art results on GLUE, RACE and SQuAD. These results highlight the importance of previously overlooked design choices, and raise questions about the source of recently reported improvements. We release our models and code.
+   Citation Count: 19082
+
+- Paper ID: 9a29c977dc29699867fdc5428fc8bdf76b490376
+   Title: Universal Spam Detection using Transfer Learning of BERT Model
+   Abstract: Deep learning transformer models become important by training on text data based on self-attention mechanisms. This manuscript demonstrated a novel universal spam detection model using pre-trained Google's Bidirectional Encoder Representations from Transformers (BERT) base uncased models with four datasets by efficiently classifying ham or spam emails in real-time scenarios. Different methods for Enron, Spamassain, Lingspam, and Spamtext message classification datasets, were used to train models individually in which a single model was obtained with acceptable performance on four datasets. The Universal Spam Detection Model (USDM) was trained with four datasets and leveraged hyperparameters from each model. The combined model was finetuned with the same hyperparameters from these four models separately. When each model using its corresponding dataset, an F1-score is at and above 0.9 in individual models. An overall accuracy reached 97%, with an F1 score of 0.96. Research results and implications were discussed.
+   Citation Count: 28
+
+- Paper ID: b713a6f4fb62c23ce156c74a30fa41880081cbc5
+   Title: A Novel Text Mining Approach for Mental Health Prediction Using Bi-LSTM and BERT Model
+   Abstract: With the current advancement in the Internet, there has been a growing demand for building intelligent and smart systems that can efficiently address the detection of health-related problems on social media, such as the detection of depression and anxiety. These types of systems, which are mainly dependent on machine learning techniques, must be able to deal with obtaining the semantic and syntactic meaning of texts posted by users on social media. The data generated by users on social media contains unstructured and unpredictable content. Several systems based on machine learning and social media platforms have recently been introduced to identify health-related problems. However, the text representation and deep learning techniques employed provide only limited information and knowledge about the different texts posted by users. This is owing to a lack of long-term dependencies between each word in the entire text and a lack of proper exploitation of recent deep learning schemes. In this paper, we propose a novel framework to efficiently and effectively identify depression and anxiety-related posts while maintaining the contextual and semantic meaning of the words used in the whole corpus when applying bidirectional encoder representations from transformers (BERT). In addition, we propose a knowledge distillation technique, which is a recent technique for transferring knowledge from a large pretrained model (BERT) to a smaller model to boost performance and accuracy. We also devised our own data collection framework from Reddit and Twitter, which are the most common social media sites. Finally, we employed word2vec and BERT with Bi-LSTM to effectively analyze and detect depression and anxiety signs from social media posts. Our system surpasses other state-of-the-art methods and achieves an accuracy of 98% using the knowledge distillation technique.
+   Citation Count: 51
+
+- Paper ID: 05ea28584e5db18c0c31d1aac40e9c1905327557
+   Title: Effectiveness of Fine-tuned BERT Model in Classification of Helpful and Unhelpful Online Customer Reviews
+   Abstract: None
+   Citation Count: 36
+
+- Paper ID: 0cf535110808d33fdf4db3ffa1621dea16e29c0d
+   Title: Multi-passage BERT: A Globally Normalized BERT Model for Open-domain Question Answering
+   Abstract: BERT model has been successfully applied to open-domain QA tasks. However, previous work trains BERT by viewing passages corresponding to the same question as independent training instances, which may cause incomparable scores for answers from different passages. To tackle this issue, we propose a multi-passage BERT model to globally normalize answer scores across all passages of the same question, and this change enables our QA model find better answers by utilizing more passages. In addition, we find that splitting articles into passages with the length of 100 words by sliding window improves performance by 4%. By leveraging a passage ranker to select high-quality passages, multi-passage BERT gains additional 2%. Experiments on four standard benchmarks showed that our multi-passage BERT outperforms all state-of-the-art models on all benchmarks. In particular, on the OpenSQuAD dataset, our model gains 21.4% EM and 21.5% F1 over all non-BERT models, and 5.8% EM and 6.5% F1 over BERT-based models.
+   Citation Count: 209
+
+- Paper ID: fc5c344f82063a4a29dd8540911e3df7dfb0f3a7
+   Title: A Study of Sentiment Analysis Algorithms for Agricultural Product Reviews Based on Improved BERT Model
+   Abstract: With the rise of mobile social networks, an increasing number of consumers are shopping through Internet platforms. The information asymmetry between consumers and producers has caused producers to misjudge the positioning of agricultural products in the market and damaged the interests of consumers. This imbalance between supply and demand is detrimental to the development of the agricultural market. Sentiment tendency analysis of after-sale reviews of agricultural products on the Internet could effectively help consumers evaluate the quality of agricultural products and help enterprises optimize and upgrade their products. Targeting problems such as non-standard expressions and sparse features in agricultural product reviews, this paper proposes a sentiment analysis algorithm based on an improved Bidirectional Encoder Representations from Transformers (BERT) model with symmetrical structure to obtain sentence-level feature vectors of agricultural product evaluations containing complete semantic information. Specifically, we propose a recognition method based on speech rules to identify the emotional tendencies of consumers when evaluating agricultural products and extract consumer demand for agricultural product attributes from online reviews. Our results showed that the F1 value of the trained model reached 89.86% on the test set, which is an increase of 7.05 compared with that of the original BERT model. The agricultural evaluation classification algorithm proposed in this paper could efficiently determine the emotion expressed by the text, which helps to further analyze network evaluation data, extract effective information, and realize the visualization of emotion.
+   Citation Count: 15
+
+- Paper ID: 47fd4c82dab370cd6cbc18bf55f0daf9756faa3c
+   Title: Sentiment analysis on the impact of coronavirus in social life using the BERT model
+   Abstract: None
+   Citation Count: 154
+
+Then, you would respond with:
+{
+    "reason": "Looking at the abstract and the citation count the paper introducing the BERT model seems to be paper df2b0e26d0599ce3e70df8a9da02e51594e0e992 therefore we will select that.",
+    "action": {
+        "name": "select",
+        "paper_id": "df2b0e26d0599ce3e70df8a9da02e51594e0e992"
+    }
+}

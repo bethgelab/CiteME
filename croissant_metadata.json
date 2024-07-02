@@ -1,0 +1,110 @@
+{
+  "@type": "sc:Dataset",
+  "name": "CiteME",
+  "description": "This dataset contains excerpts from academic papers, along with titles of papers cited in these excerpts.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "N/A",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "DATASET.csv",
+      "name": "DATASET.csv",
+      "contentUrl": "DATASET.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "30a1f945f1ed0ad6192934fd914a70053397428f347e931901496a00194f1959"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "name": "Citations",
+      "description": "Records of citations with their schema.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "name": "excerpt",
+          "description": "Text excerpt from the source paper.",
+          "dataType": "sc:Text",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "excerpt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "source_paper_title",
+          "description": "Title of the paper the excerpt came from.",
+          "dataType": "sc:Text",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "source_paper_title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "source_paper_url",
+          "description": "URL of the paper the excerpt came from.",
+          "dataType": "sc:URL",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "source_paper_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "target_paper_title",
+          "description": "Title of the paper the excerpt cites.",
+          "dataType": "sc:Text",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "target_paper_title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "target_paper_url",
+          "description": "URL of the paper the excerpt cites.",
+          "dataType": "sc:URL",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "target_paper_url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "year",
+          "description": "Publish year of the source paper.",
+          "dataType": "sc:Integer",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "year"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "name": "split",
+          "description": "Dataset split (train or test).",
+          "dataType": "sc:Text",
+          "references": {
+            "fileObject": { "@id": "DATASET.csv" },
+            "extract": {
+              "column": "split"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

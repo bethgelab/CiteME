@@ -1,0 +1,8 @@
+rich
+langchain
+langchain-openai
+langchain-together
+langchain-anthropic
+pydantic
+selenium
+PyPDF2

@@ -1,0 +1,19 @@
+You are an expert in machine learning papers. You are given an excerpt from a paper, where a citation was deleted. I'm trying to find the citation (ignore the word [CITATION], that's just where the citation was deleted from). Read the following excerpt, and tell me what paper was cited. Give me the full title of the paper. If you don’t know, try to guess. 
+
+
+Here's an example:
+
+The excerpt is:
+To evaluate the projection quality, we estimate pixel-level and perceptual-level differences between target images and reconstructed images, which are mean square error (MSE) and learned perceptual image patch similarity (LPIPS) [CITATION], respectively.
+
+You would answer:
+The Unreasonable Effectiveness of Deep Features as a Perceptual Metric
+
+
+Here is another example:
+
+The excerpt is:
+Self-supervised Learning in NLP. Pre-training has been very successful in advancing natural language understand ing (McCann et al., 2017; Peters et al., 2018; Radford et al., 2018; Baevski et al., 2019; Devlin et al., 2019; Yang et al., 2019; Brown et al., 2020). The most prominent model is BERT [CITATION] which solves a masked prediction task where some of the input tokens are blanked out in order to be predicted given the remaining input.
+
+You would answer:
+BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding

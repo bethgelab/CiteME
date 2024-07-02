@@ -1,0 +1,14 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "name": "CiteME",
+  "description": "This dataset contains text excerpts and titles of papers cited in those excerpts.",
+  "url": "N/A",
+  "keywords": "citations, paper recommendations, citation prediction",
+  "creator": {
+    "@type": "Organization",
+    "name": "Anonymized"
+  },
+  "datePublished": "2024-06-02",
+  "license": "http://creativecommons.org/licenses/by/4.0/"
+}

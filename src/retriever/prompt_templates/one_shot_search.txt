@@ -1,0 +1,14 @@
+You are an expert in machine learning papers. You are given an excerpt from a paper, where a citation was deleted. I'm trying to find the citation (ignore the word [CITATION], that's just where the citation was deleted from). Read the following excerpt, and tell me what paper was cited. Tell me what to search in order to find the paper.
+
+<FORMAT_INSTRUCTIONS>
+
+For example, given the excerpt:
+To evaluate the projection quality, we estimate pixel-level and perceptual-level differences between target images and reconstructed images, which are mean square error (MSE) and learned perceptual image patch similarity (LPIPS) [CITATION], respectively.
+We should search for "LPIPS metric":
+{
+    "reason": "The paper we're looking for is a metric called LPIPS. As this is a specific term, we'll search by citations and not by relevance.",
+    "action": {
+        "name": "search_citation_count",
+        "query": "LPIPS metric"
+    }
+}
