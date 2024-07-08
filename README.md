@@ -74,3 +74,7 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
     primaryClass={cs.ML}
 }
 ```
+
+## 🪪 License <a name="license"></a>
+Code: MIT. Check `LICENSE`.
+Daset: CC-BY-4.0. Check `LICENSE_DATASET`.
