@@ -10,7 +10,7 @@
   <a href="https://citeme.ai/paper"><strong>Preprint</strong></a>
 </p>
 
-**CiteME is a dataset that tests Language Models in their ability to find papers cited by scientific texts.**
+**CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.**
 
 
 
