@@ -12,26 +12,11 @@
 
 **CiteME is a dataset that tests Language Models in their ability to find papers cited by scientific texts.**
 
-## 📝 tl;dr
-CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.
-
-## ❓ What's the task?
-Each question in CiteME is made up of a text excerpt (taken from a research paper) that cites a single paper. The cited paper is marked with the word [CITATION]. For each excerpt, the goal is to find the title of the cited paper.
-
-## 📊 CiteME Evaluation
-We enable language models to search for papers, read them, and then pick the paper it thinks is cited. In addition to the 3 LMs tested, we also test two SPECTER models.
-
-## 🏆 Leaderboard
-|           | GPT-4o | LLaMa-3-70B | Claude 3 Opus | SPECTER2 | SPECTER1 |
-|-----------|--------|-------------|---------------|----------|----------|
-| Accuracy [%] | **35.3** | 21.0 | 27.7 | 0 | 0 |
-
-## 🚀 CiteAgent in Action
-We enable language models to search for papers, read them, and then pick the paper it thinks is cited. We refer to this combination of commands and LMs as "CiteAgents". To see CiteAgents in action, [click here](https://www.citeme.ai/trajectories.html).
 
 
+# 🚀 Get Started
 
-## Dataset
+### Dataset
 
 **The hand curated version of the dataset can be found on [citeme.ai](https://www.citeme.ai).**  
 It contains following columns:
