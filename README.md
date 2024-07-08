@@ -1,5 +1,16 @@
-# CiteME: Can Language Models Accurately Cite Scientific Claims?
+<p align="center">
+  <a href="https://www.citeme.ai/">
+    <img src="assets/banner.png" alt="citeme.ai" />
+  </a>
+</p>
 
+
+<p align="center">
+  <a href="https://citeme.ai"><strong>Website & Dataset Download </strong></a>&nbsp; | &nbsp;
+  <a href="https://citeme.ai/paper"><strong>Preprint</strong></a>
+</p>
+
+**CiteME is a dataset that tests Language Models in their ability to find papers cited by scientific texts.**
 
 ## 📝 tl;dr
 CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.
