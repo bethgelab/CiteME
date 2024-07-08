@@ -77,4 +77,4 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
 
 ## 🪪 License <a name="license"></a>
 Code: MIT. Check `LICENSE`.
-Daset: CC-BY-4.0. Check `LICENSE_DATASET`.
+Dataset: CC-BY-4.0. Check `LICENSE_DATASET`.
