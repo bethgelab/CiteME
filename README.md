@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://citeme.ai"><strong>Website & Dataset Download </strong></a>&nbsp; | &nbsp;
-  <a href="https://citeme.ai/paper"><strong>Preprint</strong></a>
+  <a href="https://www.citeme.ai/paper.pdf"><strong>Preprint</strong></a>
 </p>
 
 **CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.**
