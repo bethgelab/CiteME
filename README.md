@@ -69,9 +69,10 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
     title={CiteME: Can Language Models Accurately Cite Scientific Claims?},
     author={Ori Press and Andreas Hochlehnert and Ameya Prabhu and Vishaal Udandarao and Ofir Press and Matthias Bethge},
     year={2024},
-    eprint={},
+    eprint={2407.12861},
     archivePrefix={arXiv},
-    primaryClass={cs.ML}
+    primaryClass={cs.AI},
+    url={https://arxiv.org/abs/2407.12861}
 }
 ```
 
