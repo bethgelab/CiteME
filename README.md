@@ -6,7 +6,8 @@
 
 
 <p align="center">
-  <a href="https://citeme.ai"><strong>Website & Dataset Download </strong></a>&nbsp; | &nbsp;
+  <a href="https://citeme.ai"><strong>Website</strong></a>&nbsp; | &nbsp;
+  <a href="https://huggingface.co/datasets/bethgelab/CiteME"><strong>Dataset</strong></a>&nbsp; | &nbsp;
   <a href="https://www.citeme.ai/paper.pdf"><strong>Preprint</strong></a>
 </p>
 
