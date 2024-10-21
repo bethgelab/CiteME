@@ -9,6 +9,7 @@ from langchain_core.messages import (
 )
 from langchain.output_parsers import PydanticOutputParser
 from langchain.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
 from retriever.search_provider import (
     SemanticScholarSearchProvider,
     PaperSearchResult,
@@ -104,7 +105,7 @@ class LLMSelfAskAgentPydantic(BaseAgent):
         system_prompt = system_prompt.replace(
             "<FORMAT_INSTRUCTIONS>", self.parser.get_format_instructions()
         )
-        if self.model.model_name.startswith('o1'):
+        if isinstance(self.model, ChatOpenAI) and self.model.model_name.startswith('o1'):
             self.history = [HumanMessage(content=system_prompt)]
         else:
             self.history = [SystemMessage(content=system_prompt)]
@@ -259,7 +260,7 @@ class LLMNoSearch(BaseAgent):
     def reset(self, source_papers_title: List[str] = []):
         with open(self.prompt_template_path, "r") as f:
             system_prompt = f.read()
-        if self.model.model_name.startswith('o1'):
+        if isinstance(self.model, ChatOpenAI) and self.model.model_name.startswith('o1'):
             self.history = [HumanMessage(content=system_prompt)]
         else:
             self.history = [SystemMessage(content=system_prompt)]
