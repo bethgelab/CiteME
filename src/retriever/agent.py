@@ -104,7 +104,10 @@ class LLMSelfAskAgentPydantic(BaseAgent):
         system_prompt = system_prompt.replace(
             "<FORMAT_INSTRUCTIONS>", self.parser.get_format_instructions()
         )
-        self.history = [SystemMessage(content=system_prompt)]
+        if self.model.model_name.startswith('o1'):
+            self.history = [HumanMessage(content=system_prompt)]
+        else:
+            self.history = [SystemMessage(content=system_prompt)]
         self.paper_buffer: List[List[PaperSearchResult]] = []
         self.source_papers_title = source_papers_title
 
@@ -256,7 +259,10 @@ class LLMNoSearch(BaseAgent):
     def reset(self, source_papers_title: List[str] = []):
         with open(self.prompt_template_path, "r") as f:
             system_prompt = f.read()
-        self.history = [SystemMessage(content=system_prompt)]
+        if self.model.model_name.startswith('o1'):
+            self.history = [HumanMessage(content=system_prompt)]
+        else:
+            self.history = [SystemMessage(content=system_prompt)]
 
     def __call__(self, excerpt: str, year: str = "", max_actions=5):
         message = HumanMessage(
