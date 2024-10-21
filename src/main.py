@@ -24,14 +24,14 @@ metadata = {
     "temperature": DEFAULT_TEMPERATURE,
     "executor": "LLMSelfAskAgentPydantic",
     "search_provider": "SemanticScholarSearchProvider",
-    "prompt_name": "few_shot_search",
+    "prompt_name": "few_shot_search",  # See prompt names in retriever/prompt_templates
     "actions": "search_relevance,search_citation_count,read,select",
     "search_limit": 10,
     "threshold": 0.8,
     "execution_date": datetime.now().isoformat(),
-    "only_open_access": True,
+    "only_open_access": False,
     "dataset_split": "all",
-    "use_web_search": True,
+    "use_web_search": False,
     "max_actions": 15,
 }
 # -- NO USER EDITABLE CODE BELOW THIS LINE --
