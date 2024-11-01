@@ -66,14 +66,12 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
 ## 📚Citation
 ### If you find our work helpful, please use the following citation:
 ```
-@misc{press2024citeme,
-    title={CiteME: Can Language Models Accurately Cite Scientific Claims?},
-    author={Ori Press and Andreas Hochlehnert and Ameya Prabhu and Vishaal Udandarao and Ofir Press and Matthias Bethge},
-    year={2024},
-    eprint={2407.12861},
-    archivePrefix={arXiv},
-    primaryClass={cs.AI},
-    url={https://arxiv.org/abs/2407.12861}
+@inproceedings{press2024citeme,
+  title={Cite{ME}: Can Language Models Accurately Cite Scientific Claims?},
+  author={Press, Ori and Hochlehnert, Andreas and Prabhu, Ameya and Udandarao, Vishaal and Press, Ofir and Bethge, Matthias},
+  booktitle={Advances in Neural Information Processing Systems},
+  volume={38},
+  year={2024}
 }
 ```
 
