@@ -69,8 +69,7 @@ To run the agent without actions change the executor from `LLMSelfAskAgentPydant
 @inproceedings{press2024citeme,
   title={Cite{ME}: Can Language Models Accurately Cite Scientific Claims?},
   author={Press, Ori and Hochlehnert, Andreas and Prabhu, Ameya and Udandarao, Vishaal and Press, Ofir and Bethge, Matthias},
-  booktitle={Advances in Neural Information Processing Systems},
-  volume={38},
+  booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
   year={2024}
 }
 ```
