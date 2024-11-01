@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://citeme.ai"><strong>Website</strong></a>&nbsp; | &nbsp;
   <a href="https://huggingface.co/datasets/bethgelab/CiteME"><strong>Dataset</strong></a>&nbsp; | &nbsp;
-  <a href="https://www.citeme.ai/paper.pdf"><strong>Preprint</strong></a>
+  <a href="https://www.citeme.ai/paper.pdf"><strong>Paper</strong></a>
 </p>
 
 **CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.**
