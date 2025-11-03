@@ -1,0 +1,17 @@
+[project]
+name = "CiteME"
+version = "0.1.0"
+description = "A benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain==0.2",
+    "langchain-anthropic>=0.1.23",
+    "langchain-openai>=0.1.25",
+    "langchain-together>=0.1.5",
+    "pandas>=2.3.3",
+    "pydantic>=2.12.3",
+    "pypdf2>=3.0.1",
+    "rich>=14.2.0",
+    "selenium>=4.38.0",
+]

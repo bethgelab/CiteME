@@ -41,9 +41,13 @@ CiteAgent requires following environment variables to function properly:
 - `TOGETHER_API_KEY`: Your together api key (for llama models)
 
 ### Run
-1. Install the required python packages listed in the `requirements.txt`.
+1. Install the required python packages listed in the `pyproject.toml`.
    ```
-   pip install -r requirements.txt
+   # via uv (recommended)
+   uv sync
+
+   # or via pip
+   pip install pyproject.toml
    ```
 
 2. Download the dataset from [citeme.ai](https://www.citeme.ai) and place it in the project folder as `DATASET.csv`.
