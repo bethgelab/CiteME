@@ -1,14 +1,14 @@
 <p align="center">
-  <a href="https://www.citeme.ai/">
-    <img src="assets/banner.png" alt="citeme.ai" />
+  <a href="https://bethgelab.github.io/CiteME/">
+    <img src="assets/banner.png" alt="CiteME" />
   </a>
 </p>
 
 
 <p align="center">
-  <a href="https://citeme.ai"><strong>Website</strong></a>&nbsp; | &nbsp;
+  <a href="https://bethgelab.github.io/CiteME/"><strong>Website</strong></a>&nbsp; | &nbsp;
   <a href="https://huggingface.co/datasets/bethgelab/CiteME"><strong>Dataset</strong></a>&nbsp; | &nbsp;
-  <a href="https://www.citeme.ai/paper.pdf"><strong>Paper</strong></a>
+  <a href="https://arxiv.org/abs/2407.12861"><strong>Paper</strong></a>
 </p>
 
 **CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.**
@@ -19,7 +19,7 @@
 
 ### Dataset
 
-**The hand curated version of the dataset can be found on [citeme.ai](https://www.citeme.ai).**  
+**The hand curated version of the dataset can be found on [Hugging Face](https://huggingface.co/datasets/bethgelab/CiteME).**
 It contains following columns:
 - `id`: A unique id that is used in all our experiments to reference a specific paper.
 - `excerpt`: The text excerpt describing the target paper.
@@ -50,7 +50,7 @@ CiteAgent requires following environment variables to function properly:
    pip install pyproject.toml
    ```
 
-2. Download the dataset from [citeme.ai](https://www.citeme.ai) and place it in the project folder as `DATASET.csv`.
+2. Download the dataset from [Hugging Face](https://huggingface.co/datasets/bethgelab/CiteME) and place it in the project folder as `DATASET.csv`.
 
 3. Run the `main.py` file.
    ```
@@ -66,6 +66,10 @@ To run different models adjust the `model` entry (e.g. `gpt-4o`, `claude-3-opus-
 To run the agent without actions change the executor from `LLMSelfAskAgentPydantic` to `LLMNoSearch` and adjust the `prompt_name` to a `*_no_search` prompt.
 
 
+
+## Website
+
+The static project website lives in `docs/` and is published at [bethgelab.github.io/CiteME](https://bethgelab.github.io/CiteME/). Configure GitHub Pages to deploy from the `main` branch and `/docs` folder. `docs/.nojekyll` serves the HTML and images directly.
 
 ## 📚Citation
 ### If you find our work helpful, please use the following citation:
