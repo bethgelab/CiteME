@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CYY028S6J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8CYY028S6J');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.">
+    <meta name="keywords" content="CiteME, language models, scientific claims, benchmark, papers, scientific texts">
+    <meta name="author" content="Ori Press, Andreas Hochlehnert, Ameya Prabhu, Vishaal Udandarao, Ofir Press, Matthias Bethge">
+
+    <title>CiteME</title>
+    <link rel="canonical" href="https://bethgelab.github.io/CiteME/">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F4F4F4;
+            color: black;
+            margin: 0 8%;
+            padding: 0;
+        }
+        header {
+            background-color: #F4F4F4;
+            color: black;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            border-top: 12px solid #F1D46E;
+            border-bottom: 12px solid #FDCD86;
+            border-left: 12px solid #9FE0E4;
+            border-right: 12px solid #D9D9D9;
+            width: 50%; /* Adjusting width to account for padding */
+            margin: 15px auto; /* Centering header */
+        }
+        .header-content {
+            margin-top: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+        .header-content h1 {
+            font-size: 40px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .header-content .logo-img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            margin-top: -2em;
+        }
+        header .subtitle {
+            font-size: 30px; /* Increased font size */
+            margin: 10px 0;
+        }
+        header .description {
+            font-size: 20px; /* Adjust font size */
+            margin: 20px 0; /* Add more space below the title */
+            width: 100%; /* Match the title width */
+        }
+        header .authors {
+            font-size: 17px; /* Increased font size */
+            margin: 20px 0 5px; /* Add more space above the authors */
+        }
+        header .affiliations {
+            font-size: 15px; /* Slightly smaller font size */
+            margin: 5px 0;
+        }
+        header .note {
+            font-size: 14px; /* Slightly smaller font size */
+            margin: 5px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        nav a {
+            text-decoration: none;
+        }
+
+        nav button {
+            background-color: #F4F4F4;
+            color: black;
+            border: 2px solid black;
+            padding: 10px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: inline-block; /* Ensure the image is displayed inline */
+            vertical-align: left; /* Align the image vertically in the middle */
+        }
+
+        nav button:hover {
+            background-color: rgb(213, 213, 213);
+        }
+        nav button:disabled {
+            cursor: not-allowed;
+            background-color: rgb(213, 213, 213);
+            color: gray;
+            border: 2px solid gray;
+        }
+        .content-container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .Results-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Adjust as necessary */
+            margin-top: 10px; /* Add margin-top for gap */
+        }
+        .citation-header {
+            font-size: 1.05em; /* Adjust the font size as needed */
+            width: 75%;
+            margin-left: 0%;
+        }
+        .citation-box {
+            background: black;
+            color: white;
+            padding: 2px;
+            font-size: 16px;
+            white-space: pre-wrap;
+            text-align: left;
+            font-family: 'Ubuntu Mono', monospace;
+            width: 100%; /* Adjust width as necessary */
+            margin: 0 auto;
+            line-height: 1.2; /* Adjust line height */
+            margin-left: 0; /* Remove left margin */
+        }
+        .leaderboard {
+            margin-bottom: 2px;
+        }
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .leaderboard th, .leaderboard td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .leaderboard th {
+            background-color: #f2f2f2;
+        }
+        .leaderboard td strong {
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #F4F4F4;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            /* position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0; */
+            width: 100%;
+            font-size: 0.8em;
+        }
+        .banner {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            border-top: 8px solid orange;
+            border-bottom: 8px solid yellow;
+            border-left: 8px solid blue;
+            border-right: 8px solid black;
+        }
+        .result-item { cursor: pointer; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; width: 60%; margin-left: 20%; }
+        .history { display: block; margin-top: 10px; padding-left: 20px; }
+        .result-success { background-color: green; }
+        .result-failure { background-color: red; }
+        .result-error { background-color: gray; }
+        .action-select { background-color: #D9D9D9; color: black; }
+        .action-read { background-color: #9FE0E4; color: black; }
+        .action-search_citation_count { background-color: #F1D46E; color: black; }
+        .action-search_relevance { background-color: #FDCD86; color: black; }
+        .action-invalid { background-color: gray; color: white; }
+        .system-box, .citeagent-box, .input-box {
+            text-align: left;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5x;
+            width: 100%; /* Set to 100% to match content-container */
+            /* box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
+        .system-box {
+            text-align: left;
+            float: left;
+            clear: both;
+            width: 80%; /* Decrease width by 20% */
+            margin-right: 20%; /* Increase right margin by 20% */
+        }
+        .citeagent-box {
+            text-align: left;
+            float: right;
+            clear: both;
+            background-color: gray;
+            width: 80%; /* Decrease width by 20% */
+            margin-left: 20%; /* Increase left margin by 20% */
+        }
+        .paper-list {
+        list-style-type: none; /* Remove default list styles */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margins */
+        text-align: left; /* Ensure text inside the list is left-aligned */
+        }
+        .paper-list li {
+            margin-bottom: 15px; /* Add some space between list items */
+        }
+        .citeagent-box.action-select { background-color:  #D9D9D9; color: black; }
+        .bold-underline { font-weight: bold; text-decoration: underline; }
+        .citeagent-box.action-read { background-color: #9FE0E4; color: black; }
+        .citeagent-box.action-search_citation_count { background-color: #F1D46E; color: black; }
+        .citeagent-box.action-search_relevance { background-color: #FDCD86; color: black; }
+        .box-role { text-align: center; font-weight: bold; margin-bottom: 5px; }
+        .title { font-size: 1.5em; font-weight: bold; }
+        .centered-content {
+            text-align: center;
+        }
+        .authors br {
+            display: block;
+            margin-bottom: 3px; /* Adjust the value as needed */
+        }
+
+
+
+
+/* Desktop styles */
+body {
+    margin: 0 8%;
+    font-size: 18px; /* Example desktop font size */
+    text-align: center; /* Center align text in the body */
+}
+
+header {
+    width: 50%; /* Desktop width */
+    margin: 15px auto; /* Centering header */
+    padding: 30px;
+    text-align: center; /* Center align text in header */
+}
+
+.content-container,
+.system-box,
+.citeagent-box,
+.input-box,
+.description,
+.how-it-works,
+.history {
+    width: 50%; /* Desktop width */
+    margin: 0 auto;
+    text-align: center; /* Center align text */
+}
+
+.system-box {
+    text-align: left;
+    float: left;
+    clear: both;
+    width: 80%; /* Decrease width by 20% */
+    margin-right: 20%; /* Increase right margin by 20% */
+}
+
+.citeagent-box {
+    text-align: left;
+    float: right;
+    clear: both;
+    background-color: gray;
+    width: 80%; /* Decrease width by 20% */
+    margin-left: 20%; /* Increase left margin by 20% */
+    margin-top: 5px; /* Add margin at the top */
+    margin-bottom: 5px; /* Add margin at the bottom */
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 20px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav button {
+    background-color: #F4F4F4;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: inline-block; /* Ensure the image is displayed inline */
+    vertical-align: left; /* Align the image vertically in the middle */
+}
+
+nav button:hover {
+    background-color: rgb(213, 213, 213);
+}
+
+nav button:disabled {
+    cursor: not-allowed;
+    background-color: rgb(213, 213, 213);
+    color: gray;
+    border: 2px solid gray;
+}
+
+.left-align {
+    text-align: left;
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+.left-align-null {
+    text-align: left;
+    margin-bottom: 2px; /* Add margin at the bottom for spacing */
+}
+
+/* General container for results */
+.Results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 10px; /* Add margin-top for gap */
+}
+
+/* Inner results container with consistent width */
+.Results {
+    width: 90%; /* Set to 90% by default for mobile */
+    text-align: left; /* Align text to the left */
+}
+
+/* Citation header styling */
+.citation-header {
+    font-size: 1.05em; /* Adjust the font size as needed */
+    margin: 0 0 10px 0; /* Adjust margins for spacing */
+}
+
+/* Citation box styling */
+.citation-box {
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    text-align: left;
+    font-family: 'Ubuntu Mono', monospace;
+    width: 100%; /* Match the parent width */
+    line-height: 1.2; /* Adjust line height */
+    margin: 0 auto;
+}
+
+/* Add this media query for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0 auto;
+        font-size: 12px; /* Decrease font size by 6 points */
+        text-align: center; /* Center align text in the body */
+        width: 100%;
+    }
+    header {
+        width: 90%; /* Change width to 90% on mobile */
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center; /* Center align text in header */
+    }
+    header .subtitle {
+        font-size: 24px; /* Decrease font size by 6 points */
+    }
+    header .description {
+        font-size: 12px; /* Adjust font size */
+    }
+    header .authors {
+        font-size: 12px; /* Decrease font size by 6 points */
+    }
+    header .affiliations {
+        font-size: 9px; /* Decrease font size by 6 points */
+    }
+    header .note {
+        font-size: 8px; /* Decrease font size by 6 points */
+    }
+    nav {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+    }
+    nav button {
+        padding: 10px 20px;
+        font-size: 12px; /* Decrease font size by 6 points */
+    }
+    .content-container {
+        width: 90%; /* Change width to 90% on mobile */
+        margin: 0 auto; /* Center the container */
+        font-size: 12px; /* Decrease font size by 6 points */
+        text-align: center; /* Center align text */
+        padding-bottom: 20px; /* Add padding at the bottom */
+    }
+    .citation-header,
+    .citation-box {
+        width: 90%; /* Change width to 90% on mobile */
+        margin: 0 auto; /* Center the citation */
+        text-align: left; /* Left align text */
+    }
+    .footer {
+        font-size: 12px; /* Adjust font size */
+    }
+    .banner {
+        font-size: 12px; /* Decrease font size by 6 points */
+        padding: 10px;
+    }
+
+    .leaderboard {
+        margin-top: 0 !important; /* Ensure no margin at the top */
+        padding-top: 0 !important; /* Ensure no padding at the top */
+    }
+
+    .leaderboard-title {
+        text-align: left !important; /* Ensure "Leaderboard" is left-aligned */
+        margin: 0 !important; /* Remove all margins */
+    }
+
+    .leaderboard table {
+        margin-top: 0 !important; /* Remove margin between the heading and the table */
+    }
+
+    .result-item {
+        width: 90%;
+        margin: 0 auto; /* Center the result items */
+        text-align: center; /* Center align text */
+    }
+    .system-box,
+    .citeagent-box,
+    .input-box,
+    .description,
+    .how-it-works,
+    .history {
+        width: 90%; /* Change width to 90% on mobile */
+        margin: 0 auto; /* Center the boxes */
+        font-size: 12px; /* Adjust font size */
+        text-align: center; /* Center align text */
+        padding-bottom: 20px; /* Add padding at the bottom */
+    }
+
+    /* Ensure padding between system and citeagent boxes on mobile */
+    .citeagent-box {
+        margin-top: 2px; /* Add margin at the top */
+        margin-bottom: 2px; /* Add margin at the bottom */
+    }
+    .left-align {
+        width: 90%; /* Change width to 90% on mobile */
+        text-align: left;
+        margin: 0 auto;
+        margin-bottom: 20px; /* Add margin at the bottom for spacing */
+    }
+}
+
+/* Add this media query for desktop-specific styles */
+@media screen and (min-width: 769px) {
+    .Results {
+        width: 60%; /* Adjust width to 60% for desktop */
+        margin-left: 20%; /* Add 20% left margin for desktop */
+        margin-right: 20%; /* Add 20% right margin for desktop */
+    }
+}
+
+    </style>
+    <script>
+        function toggleHistory(id) {
+            var elem = document.getElementById(id);
+            if (elem.style.display === 'none' || elem.style.display === '') {
+                elem.style.display = 'block';
+            } else {
+                elem.style.display = 'none';
+            }
+        }
+        function toggleContent(event, id) {
+            event.stopPropagation();
+            var preview = document.getElementById(id + '-preview');
+            var full = document.getElementById(id + '-full');
+            var mid = document.getElementById(id + '-mid');
+            if (preview && preview.style.display !== 'none') {
+                preview.style.display = 'none';
+                if (mid) mid.style.display = 'block';
+            } else if (mid && mid.style.display !== 'none') {
+                mid.style.display = 'none';
+                full.style.display = 'block';
+            } else {
+                preview.style.display = 'block';
+                if (mid) mid.style.display = 'none';
+                full.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img class="logo-img" src="images/citeme_logo.png" />
+            <h1>CiteME</h1>
+        </div>
+        <p class="subtitle">Can Language Models Accurately Cite Scientific Claims?</p>
+        <p class="description">CiteME is a benchmark designed to test the abilities of language models in finding papers that are cited in scientific texts.</p>
+        <p class="authors">
+            <a href="https://oripress.com" target="_blank">Ori Press</a>*,
+            <a href="https://github.com/libeanim" target="_blank">Andreas Hochlehnert</a>*,
+            <a href="https://drimpossible.github.io/" target="_blank">Ameya Prabhu</a>,
+            <a href="https://vishaal27.github.io/" target="_blank">Vishaal Udandarao</a>,
+            <br>
+            <a href="https://ofir.io" target="_blank">Ofir Press</a><small>‡</small>,
+            <a href="https://bethgelab.org" target="_blank">Matthias Bethge</a><small>‡</small>
+        </p>
+<!--         <p class="affiliations">University of Tübingen, Tübingen AI Center; Princeton Language and Intelligence, Princeton University; University of Cambridge; Open-Ψ (Open-Sci) Collective</p> -->
+        <p class="note">* / ‡ shared first/last authorship</p>
+    </header>
+    <nav>
+        <a href="https://arxiv.org/abs/2407.12861"><button> <img class="logo-img" src="images/paper_logo.png" />Paper</button></a>
+        <a href="https://github.com/bethgelab/CiteME"><button> <img class="logo-img" src="images/github_logo.png" />Code</button></a>
+        <a href="https://huggingface.co/datasets/bethgelab/CiteME"><button> <img class="logo-img" src="images/hf-logo.png" />Dataset</button></a>
+    </nav>
+
+        <div class="description left-align">
+            <h2>What's the task?</h2>
+            <p>Each question in CiteME is made up of a text excerpt (taken from a research paper) that cites a single paper. The cited paper is marked with the word [CITATION]. For each excerpt, the goal is to find the title of the cited paper. For example, given the excerpt <i>"We evaluate our model on [CITATION], a dataset consisting of black and white handwritten digits"</i>, the answer would be: <i>"Backpropagation Applied to Handwritten Zip Code Recognition"</i>.</p>
+        </div>
+
+        <div class="description left-align-null">
+            <h2 class="leaderboard-title">CiteME Leaderboard</h2>
+        </div>
+
+             <div class="content-container">
+            <!-- Leaderboard Section -->
+            <div class="leaderboard">
+                <h2></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Accuracy (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CiteAgent + GPT-4o</td>
+                            <td>35.3</td>
+                        </tr>
+                        <tr>
+                            <td>CiteAgent + Claude 3 Opus</td>
+                            <td>27.7</td>
+                        </tr>
+
+                        <tr>
+                            <td>CiteAgent + LLaMA-3-70B</td>
+                            <td>21.0</td>
+                        </tr>
+                        <tr>
+                            <td>SPECTER2</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>SPECTER1</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="how-it-works left-align">
+            <h2>CiteAgent in Action</h2>
+            <p>We refer to the combination of an LM and our system of search/read/select commands as "CiteAgents". In the example below, we show how CiteAgent using GPT-4o finds a paper given an excerpt. To view more examples, <a href="trajectories.html">click here</a>.</p>
+        </div>
+
+
+        <!-- New content added here -->
+        <div class="input-box">
+            <div class='box-role'>Question</div>
+            <p> <span class='bold-underline'>Excerpt:</span> One reason might be the training task itself: from [CITATION] we know that ImageNet can be solved to high accuracy using only local information. In other words, it might simply suffice to integrate evidence from many local texture features rather than going through the process of integrating and classifying global shapes</p>
+        </div>
+        <div class='history' id='history-0'>
+            <div class='citeagent-box action-search_relevance'>
+                <div class='box-role'>CiteAgent</div>
+                <p><span class='bold-underline'>Thought:</span>  The cited paper seems to be about solving ImageNet using local information. I&#x27;ll start by searching for papers related to &#x27;solving ImageNet using local information&#x27;.<br><p><span class='bold-underline'>Action:</span> <span class='action-search_relevance'>search(sort=Relevance)</span> ImageNet solved with local information</p>
+            </div>
+            <div class='system-box'>
+                <div class='box-role'>System</div>
+                    <ul class="paper-list">
+                    <li>
+                        <strong>Paper ID:</strong> bcd883<br>
+                        <strong>Title:</strong> Local directional relation pattern for unconstrained and robust face retrieval<br>
+                        <strong>Abstract:</strong> None<br>
+                        <strong>Citation Count:</strong> 40
+                    </li>
+                    <br>
+                    <li>
+                        <strong>Paper ID:</strong> b49064<br>
+                        <strong>Title:</strong> Joint Image Classification and Annotation Prediction Using Iterative Learning on Local Neighbourhood<br>
+                        <strong>Abstract:</strong> Image annotation (tag) and classification play a critical role in many computer vision applications, such as image retrieval, scene understanding, scene...<br>
+                        <strong>Citation Count:</strong> 0
+                    </li>
+                    <br>
+                    <li>
+                        <strong>Paper ID:</strong> d62bad<br>
+                        <strong>Title:</strong> Information poverty-Connecting every child to opportunity<br>
+                        <strong>Abstract:</strong> For a child to be nutritionally healthy, 1,500 calories are required each day. Can similar measures be defined with respect to...<br>
+                        <strong>Citation Count:</strong> 0
+                    </li>
+                    </ul>
+
+            </div>
+            <div class='citeagent-box action-search_relevance'>
+                <div class='box-role'>CiteAgent</div>
+                <p><span class='bold-underline'>Thought:</span> The search results do not seem to include papers directly addressing the solution of ImageNet using local information. Therefore, I need to modify the search query to better match the context provided in the excerpt.<br><br><span class='bold-underline'>Action:</span> <span class='action-search_relevance'>search(sort=Relevance)</span> ImageNet high accuracy using local texture features</p>
+            </div>
+            <div class='system-box'>
+                <div class='box-role'>System</div>
+<ul class="paper-list">
+<li>
+    <strong>Paper ID:</strong> 29dc9c<br>
+    <strong>Title:</strong> Assessing Texture Features to Classify Coastal Wetland Vegetation from High Spatial Resolution Imagery Using Completed Local Binary Patterns (CLBP)<br>
+    <strong>Abstract:</strong> Coastal wetland vegetation is a vital component that plays an important role in environmental protection and the maintenance of the ecological balance. As such, the efficient classification of coastal wetland vegetation types is key to the preservation of wetlands...<br>
+    <strong>Citation Count:</strong> 35
+</li>
+<br>
+<li>
+    <strong>Paper ID:</strong> 810ae4<br>
+    <strong>Title:</strong> Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet<br>
+    <strong>Abstract:</strong> Deep Neural Networks (DNNs) excel on many complex perceptual tasks but it has proven notoriously difficult to understand how they reach their decisions. We here introduce a high-performance DNN architecture on ImageNet whose decisions are considerably easier to explain...<br>
+    <strong>Citation Count:</strong> 507
+</li>
+<br>
+<li>
+    <strong>Paper ID:</strong> 37b0ab<br>
+    <strong>Title:</strong> Block-based cloud classification with statistical features and distribution of local texture features<br>
+    <strong>Abstract:</strong> This work performs cloud classification on all-sky images. To deal with mixed cloud types in one image, we propose performing block division and block-based classification...<br>
+    <strong>Citation Count:</strong> 30
+</li>
+</ul>
+            </div>
+            <div class='citeagent-box action-read'>
+                <div class='box-role'>CiteAgent</div>
+                <p><span class='bold-underline'>Thought:</span>  Paper ID 810ae4 titled &#x27;Approximating CNNs with Bag-of-local-Features models works surprisingly well on ImageNet&#x27; seems directly relevant as it mentions achieving high performance on ImageNet using local features. I will read this paper.<br><br><span class='bold-underline'>Action:</span> <span class='action-read'>read</span> 810ae4</p>
+            </div>
+            <div class='system-box'>
+                <div class='box-role'>System</div>
+                <p>Published as a conference paper at ICLR 2019
+APPROXIMATING CNN S WITH BAG-OF-LOCAL -
+FEATURES MODELS WORKS SURPRISINGLY WELL
+ONIMAGE NET
+Wie...</p>
+            </div>
+            <div class='citeagent-box action-select'>
+                <div class='box-role'>CiteAgent</div>
+                <p><span class='bold-underline'>Thought:</span>  This paper directly discusses achieving high accuracy on ImageNet using local features, which is exactly what the excerpt is about.<br><br><span class='bold-underline'>Action:</span> <span class='action-select'>select</span> 810ae4</p>
+            </div>
+            <div style='clear: both;'></div>
+        </div>
+        <br></br>
+        <div class="Results-container">
+            <div class="Results">
+                <h2 class="citation-header">If you find our work helpful, please use the following citation:</h2>
+                <div class="citation-box"> @inproceedings{press2024citeme,
+  title={Cite{ME}: Can Language Models Accurately Cite Scientific Claims?},
+  author={Press, Ori and Hochlehnert, Andreas and Prabhu, Ameya and Udandarao, Vishaal and Press, Ofir and Bethge, Matthias},
+  booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+  year={2024}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 CiteME. All rights reserved.</p>
+    </div>
+</body>
+</html>
